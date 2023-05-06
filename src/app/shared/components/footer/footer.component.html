@@ -1,0 +1,21 @@
+<footer class="footer" style="position: absolute; bottom: 0; width: 100%">
+  <div class="container-fluid">
+    <div class="row d-flex justify-content-center">
+        <nav class="pull-left">
+            <ul>
+                <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                    <a class="nav-link" [routerLink]="[menuItem.path]">
+                        <p>{{menuItem.title}}</p>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="copyright pull-right">
+            &copy;
+            {{test | date: 'yyyy'}}, by CNUNO-DEVS
+        </div>
+    </div>
+  </div>
+</footer>
