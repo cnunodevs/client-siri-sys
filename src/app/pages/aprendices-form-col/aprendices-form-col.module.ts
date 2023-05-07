@@ -5,17 +5,21 @@ import { AprendicesFormColRoutingModule } from './aprendices-form-col-routing.mo
 import { AprendicesFormColFormComponent } from './aprendices-form-col-form/aprendices-form-col-form.component';
 import { AprendicesFormColListComponent } from './aprendices-form-col-list/aprendices-form-col-list.component';
 import { AprendicesFormColEditComponent } from './aprendices-form-col-edit/aprendices-form-col-edit.component';
+import { AprendicesFormColComponent } from './aprendices-form-col.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
     AprendicesFormColFormComponent,
     AprendicesFormColListComponent,
-    AprendicesFormColEditComponent
+    AprendicesFormColEditComponent,
+    AprendicesFormColComponent
   ],
   imports: [
     CommonModule,
-    AprendicesFormColRoutingModule
+    AprendicesFormColRoutingModule,
+    SharedModule
   ]
 })
 export class AprendicesFormColModule { }

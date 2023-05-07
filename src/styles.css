@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+html{
+    scroll-behavior: smooth;
+    /* font-size: 62.5%; */
+    position: relative;
+    min-height: 100vh;
+}
+body{
+    margin-bottom: 155px;
+}

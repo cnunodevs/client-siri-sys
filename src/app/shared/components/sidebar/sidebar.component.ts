@@ -9,14 +9,14 @@ declare interface RouteInfo {
 }
 // active-pro
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Aprendices Ext.',  icon: 'content_paste', class: '' },
-    { path: '/table-list', title: 'Instructores Ext.',  icon:'content_paste', class: '' },
-    { path: '/typography', title: 'Personal Apoyo Ext.',  icon:'content_paste', class: '' },
-    { path: '/icons', title: 'Expertos Internacionales',  icon:'content_paste', class: '' },
-    { path: '/maps', title: 'Voluntarios Internacionales',  icon:'content_paste', class: '' },
-    { path: '/notifications', title: 'Aprendices Form. Col.',  icon:'content_paste', class: '' },
-    { path: '/upgrade', title: 'Instrctores Sena Form. Col',  icon:'content_paste', class: '' },
-    { path: '/upgrade', title: 'Voluntarios Sena Form. Col',  icon:'content_paste', class: '' },
+    { path: '/admin/aprendiz-ext/list-aprendiz-ext', title: 'Aprendices Ext.',  icon: 'content_paste', class: '' },
+    { path: '/admin/instructores-ext/list-instructores-ext', title: 'Instructores Ext.',  icon:'content_paste', class: '' },
+    { path: '/admin/personal-apoyo-ext/list-personal-apoyo-ext', title: 'Personal Apoyo Ext.',  icon:'content_paste', class: '' },
+    { path: '/admin/expertos-int/list-expertos-int', title: 'Expertos Internacionales',  icon:'content_paste', class: '' },
+    { path: '/admin/voluntarios-int/list-voluntarios-int', title: 'Voluntarios Internacionales',  icon:'content_paste', class: '' },
+    { path: '/admin/aprendiz-col/list-aprendiz-col', title: 'Aprendices Form. Col.',  icon:'content_paste', class: '' },
+    { path: '/admin/instructores-sena-col/list-instructores-int', title: 'Instructores Sena Form. Col',  icon:'content_paste', class: '' },
+    { path: '/admin/voluntarios-form-col/list-voluntarios-sena-form', title: 'Voluntarios Sena Form. Col',  icon:'content_paste', class: '' },
     // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
 ];
 
