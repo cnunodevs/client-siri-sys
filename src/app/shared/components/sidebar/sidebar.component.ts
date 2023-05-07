@@ -15,8 +15,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin/expertos-int/list-expertos-int', title: 'Expertos Internacionales',  icon:'content_paste', class: '' },
     { path: '/admin/voluntarios-int/list-voluntarios-int', title: 'Voluntarios Internacionales',  icon:'content_paste', class: '' },
     { path: '/admin/aprendiz-col/list-aprendiz-col', title: 'Aprendices Form. Col.',  icon:'content_paste', class: '' },
-    { path: '/admin/instructores-sena-col/list-instructores-int', title: 'Instructores Sena Form. Col',  icon:'content_paste', class: '' },
-    { path: '/admin/voluntarios-form-col/list-voluntarios-sena-form', title: 'Voluntarios Sena Form. Col',  icon:'content_paste', class: '' },
+    { path: '/admin/instructores-sena-col/list-instructores-int', title: 'Instructores Form. Col',  icon:'content_paste', class: '' },
+    { path: '/admin/voluntarios-form-col/list-voluntarios-sena-form', title: 'Voluntarios Form. Col',  icon:'content_paste', class: '' },
     // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
 ];
 

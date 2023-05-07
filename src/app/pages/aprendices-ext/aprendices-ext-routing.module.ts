@@ -17,11 +17,11 @@ const routes: Routes = [
       },
       {
         path: 'edit-aprendiz-ext',
-        component: AprendicesExtFormComponent
+        component: AprendicesExtEditComponent
       },
       {
         path: 'form-aprendiz-ext',
-        component: AprendicesExtEditComponent
+        component: AprendicesExtFormComponent
       },
       {
         path: '',

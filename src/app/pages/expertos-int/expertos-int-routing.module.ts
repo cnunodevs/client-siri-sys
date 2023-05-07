@@ -17,11 +17,11 @@ const routes: Routes = [
       },
       {
         path: 'edit-expertos-int',
-        component: AprendicesFormColEditComponent
+        component: ExpertosIntEditComponent
       },
       {
         path: 'form-expertos-int',
-        component: ExpertosIntEditComponent
+        component: AprendicesFormColEditComponent
       },
       {
         path: "",
