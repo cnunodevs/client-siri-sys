@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AprendicesFormColEditComponent } from '../aprendices-form-col/aprendices-form-col-edit/aprendices-form-col-edit.component';
 import { ExpertosIntEditComponent } from './expertos-int-edit/expertos-int-edit.component';
 import { ExpertosIntListComponent } from './expertos-int-list/expertos-int-list.component';
+import { ExpertosIntFormComponent } from './expertos-int-form/expertos-int-form.component';
 import { ExpertosIntComponent } from './expertos-int.component';
 
 const routes: Routes = [
@@ -21,7 +21,7 @@ const routes: Routes = [
       },
       {
         path: 'form-expertos-int',
-        component: AprendicesFormColEditComponent
+        component: ExpertosIntFormComponent
       },
       {
         path: "",
