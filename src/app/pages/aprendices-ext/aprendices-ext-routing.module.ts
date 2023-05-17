@@ -13,15 +13,27 @@ const routes: Routes = [
     children: [
       {
         path: 'list-aprendiz-ext',
-        component: AprendicesExtListComponent
+        component: AprendicesExtListComponent,
+        data: {
+          titulo: "Lista de aprendices",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'edit-aprendiz-ext',
-        component: AprendicesExtEditComponent
+        component: AprendicesExtEditComponent,
+        data: {
+          titulo: "Editar aprendices",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-aprendiz-ext',
-        component: AprendicesExtFormComponent
+        component: AprendicesExtFormComponent,
+        data: {
+          titulo: "Formulario de aprendices",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: '',

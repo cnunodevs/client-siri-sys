@@ -13,15 +13,27 @@ const routes: Routes = [
     children: [
       {
         path: 'list-instructores-int',
-        component: InstructoresSenaFormColListComponent
+        component: InstructoresSenaFormColListComponent,
+        data: {
+          titulo: "Lista De Intructores Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'edit-instructores-int',
-        component: InstructoresSenaFormColEditComponent
+        component: InstructoresSenaFormColEditComponent,
+        data: {
+          titulo: "Editar Intructores Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-instructores-int',
-        component: InstructoresSenaFormColFormComponent
+        component: InstructoresSenaFormColFormComponent,
+        data: {
+          titulo: "Formulario Intructores Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",

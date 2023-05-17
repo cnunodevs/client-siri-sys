@@ -12,15 +12,27 @@ const routes: Routes = [
     children: [
       {
         path: 'list-voluntarios-int',
-        component: VoluntariosIntListComponent
+        component: VoluntariosIntListComponent,
+        data: {
+          titulo: "Lista De Voluntarios Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'edit-voluntarios-int',
-        component: VoluntariosIntEditComponent
+        component: VoluntariosIntEditComponent,
+        data: {
+          titulo: "Editar Voluntarios Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-voluntarios-int',
-        component: VoluntariosIntFormComponent
+        component: VoluntariosIntFormComponent,
+        data: {
+          titulo: "Formulario Voluntarios Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",

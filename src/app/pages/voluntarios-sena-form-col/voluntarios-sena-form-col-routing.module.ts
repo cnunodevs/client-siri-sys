@@ -12,15 +12,27 @@ const routes: Routes = [
     children: [
       {
         path: 'list-voluntarios-sena-form',
-        component: VoluntariosSenaFormColListComponent
+        component: VoluntariosSenaFormColListComponent,
+        data: {
+          titulo: "Lista De Voluntarios Sena Aprendices",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'edit-voluntarios-sena-form',
-        component: VoluntariosSenaFormColEditComponent
+        component: VoluntariosSenaFormColEditComponent,
+        data: {
+          titulo: "Editar Voluntarios Sena Aprendices",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-voluntarios-sena-form',
-        component: VoluntariosSenaFormColFormComponent
+        component: VoluntariosSenaFormColFormComponent,
+        data: {
+          titulo: "Formulario Voluntarios Sena Aprendices",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",

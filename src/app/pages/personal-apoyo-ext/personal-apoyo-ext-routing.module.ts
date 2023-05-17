@@ -12,15 +12,27 @@ const routes: Routes = [
     children: [
       {
         path: 'list-personal-apoyo-ext',
-        component: PersonalApoyoExtListComponent
+        component: PersonalApoyoExtListComponent,
+        data: {
+          titulo: "Lista De Personal Apoyo Exterior",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'edit-personal-apoyo-ext',
-        component: PersonalApoyoExtEditComponent
+        component: PersonalApoyoExtEditComponent,
+        data: {
+          titulo: "Editar Personal Apoyo Exterior",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-personal-apoyo-ext',
-        component: PersonalApoyoExtFormComponent
+        component: PersonalApoyoExtFormComponent,
+        data: {
+          titulo: "Formulario Personal Apoyo Exterior",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",

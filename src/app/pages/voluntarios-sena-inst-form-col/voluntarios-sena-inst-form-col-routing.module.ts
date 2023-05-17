@@ -11,11 +11,19 @@ const routes: Routes = [
     children: [
       {
         path: 'list-voluntarios-sena-inst-form',
-        component: VoluntariosSenaInstFormColListComponent
+        component: VoluntariosSenaInstFormColListComponent,
+        data: {
+          titulo: "Lista De Voluntarios Sena Intructores",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-voluntarios-sena-inst-form',
-        component: VoluntariosSenaInstFormColFormComponent
+        component: VoluntariosSenaInstFormColFormComponent,
+        data: {
+          titulo: "Formulario Voluntarios Sena Intructores",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",

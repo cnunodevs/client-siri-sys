@@ -13,15 +13,27 @@ const routes: Routes = [
     children: [
       {
         path: 'list-expertos-int',
-        component: ExpertosIntListComponent
+        component: ExpertosIntListComponent,
+        data: {
+          titulo: "Lista de Expertos Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'edit-expertos-int',
-        component: ExpertosIntEditComponent
+        component: ExpertosIntEditComponent,
+        data: {
+          titulo: "Editar Expertos Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-expertos-int',
-        component: ExpertosIntFormComponent
+        component: ExpertosIntFormComponent,
+        data: {
+          titulo: "Formulario Expertos Internacionales",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",

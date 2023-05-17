@@ -16,13 +16,15 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { MenuTableComponent } from './components/menu-table/menu-table.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
+import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 
 const COMPONENTES = [
   NavbarComponent,
   SidebarComponent,
   FooterComponent,
   MenuTableComponent, 
-  PaginatorComponent
+  PaginatorComponent,
+  BreadcrumbsComponent
 ]
 const MODULOS = [
   CommonModule,

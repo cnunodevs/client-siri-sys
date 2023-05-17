@@ -13,15 +13,28 @@ const routes: Routes = [
     children: [
       {
         path: 'list-aprendiz-col',
-        component: AprendicesFormColListComponent
+        component: AprendicesFormColListComponent,
+        data: {
+          titulo: "Lista de aprendices Colombia",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
+        
       },
       {
         path: 'edit-aprendiz-col',
-        component: AprendicesFormColEditComponent
+        component: AprendicesFormColEditComponent,
+        data: {
+          titulo: "Editar aprendices Colombia",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: 'form-aprendiz-col',
-        component: AprendicesExtFormComponent
+        component: AprendicesExtFormComponent,
+        data: {
+          titulo: "Formulario aprendices Colombia",
+          describcion: "Sistema De Informacion De Relacionamiento Internacional"
+        }
       },
       {
         path: "",
