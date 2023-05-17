@@ -20,18 +20,31 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin/voluntarios-form-inst-col/list-voluntarios-sena-inst-form', title: 'Voluntarios Form. Inst Col',  icon:'content_paste', class: '' },
     // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
 ];
-
+// active-pro
+export const ROUTESFORM: RouteInfo[] = [
+  { path: '/admin/aprendiz-ext/form-aprendiz-ext', title: 'Aprendices',  icon: 'content_paste', class: '' },
+  { path: '/admin/instructores-ext/form-instructores-ext', title: 'Instructores',  icon:'content_paste', class: '' },
+  { path: '/admin/personal-apoyo-ext/form-personal-apoyo-ext', title: 'Personal',  icon:'content_paste', class: '' },
+  { path: '/admin/expertos-int/form-expertos-int', title: 'Expertos',  icon:'content_paste', class: '' },
+  { path: '/admin/voluntarios-int/form-voluntarios-int', title: 'Voluntarios',  icon:'content_paste', class: '' },
+  { path: '/admin/aprendiz-col/form-aprendiz-col', title: 'Aprendices',  icon:'content_paste', class: '' },
+  { path: '/admin/instructores-sena-col/form-instructores-int', title: 'Instructores',  icon:'content_paste', class: '' },
+  { path: '/admin/voluntarios-form-col/form-voluntarios-sena-form', title: 'Voluntarios Apren',  icon:'content_paste', class: '' },
+  { path: '/admin/voluntarios-form-inst-col/form-voluntarios-sena-inst-form', title: 'Voluntarios Inst',  icon:'content_paste', class: '' },
+]
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  menuForm: any[];
 
   constructor() { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.menuForm = ROUTESFORM.filter(menuForm => menuForm);
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
@@ -39,4 +52,20 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+    openMap: { [name: string]: boolean } = {
+    sub1: true,
+    sub2: false,
+    sub3: false,
+    sub4: false
+  };
+
+  openHandler(value: string): void {
+    for (const key in this.openMap) {
+      if (key !== value) {
+        this.openMap[key] = false;
+      }else{
+        this.openMap[key] = !this.openMap[key];
+      }
+    }
+  }
 }

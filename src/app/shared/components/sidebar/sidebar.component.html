@@ -6,12 +6,62 @@
         SIRI
     </a>
 </div>
-<div class="sidebar-wrapper">
+<div class="sidebar-wrapper d-flex flex-column justify-content-between">
     <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link" [routerLink]="menuItem.path">
-                <i class="material-icons text-success">{{menuItem.icon}}</i>
-                <p>{{menuItem.title}}</p>
+        <li routerLinkActive="active" class="nav-item" >
+            <a class="nav-link" (click)="openHandler('sub1')" style="display: flex; align-items: center; height: 100%; gap: 12px">
+                <span class="text-success" nz-icon nzType="windows" [nzTheme]="'outline'" style="font-size: 24px;"></span>
+                <p>Panel</p>
+            </a>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" (click)="openHandler('sub2')" style="display: flex; align-items: center; height: 100%; gap: 12px">
+                <span class="text-success" nz-icon nzType="database" [nzTheme]="'outline'" style="font-size: 24px;"></span>
+                <p>Parametros</p>
+            </a>
+            <ul class="nav">
+                <ng-container *ngIf="openMap.sub2">
+                    <li routerLinkActive="active" *ngFor="let menuItem of menuItems"
+                        class="{{menuItem.class}} nav-item">
+                        <a class="nav-link" [routerLink]="menuItem.path">
+                            <i class="material-icons text-success">{{menuItem.icon}}</i>
+                            <p>{{menuItem.title}}</p>
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" (click)="openHandler('sub4')" style="display: flex; align-items: center; height: 100%; gap: 12px">
+                <span class="text-success" nz-icon nzType="form" [nzTheme]="'outline'" style="font-size: 24px;"></span>
+                <p>Formularios</p>
+            </a>
+            <ul class="nav">
+                <ng-container *ngIf="openMap.sub4">
+                    <li routerLinkActive="active" *ngFor="let item of menuForm"
+                        class="{{item.class}} nav-item">
+                        <a class="nav-link" [routerLink]="item.path">
+                        <i class="text-success" nz-icon nzType="form" [nzTheme]="'outline'" style="font-size: 24px;"></i>
+                            <p>{{item.title}}</p>
+                        </a>
+                    </li>
+                </ng-container>
+            </ul>
+        </li>
+        <li routerLinkActive="active" class="nav-item">
+            <a class="nav-link" (click)="openHandler('sub3')" style="display: flex; align-items: center; height: 100%; gap: 12px">
+                <span class="text-success" nz-icon nzType="setting" [nzTheme]="'outline'" style="font-size: 24px;"></span>
+                <p>
+                    Configuraciones
+                </p>
+            </a>
+        </li>
+    </ul>
+    <ul class="nav">
+        <li class="nav-item">
+            <a class="nav-link bg-success text-white rounded-5" style="display: flex; align-items: center; height: 100%; gap: 12px">
+                <!-- <span class="text-success" nz-icon nzType="appstore" [nzTheme]="'fill'" style="font-size: 24px;"></span> -->
+                <p class="m-auto">Cerrar sesion</p>
             </a>
         </li>
     </ul>
