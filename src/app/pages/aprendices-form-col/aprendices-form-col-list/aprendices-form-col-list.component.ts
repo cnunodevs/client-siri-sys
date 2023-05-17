@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./aprendices-form-col-list.component.scss']
 })
 export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
-
+  idAprendizBorrar: string | null = null; 
   aprendices: AprendicesFormadosColDTO[];
 
   constructor(
@@ -18,7 +18,7 @@ export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
     this.aprendices = [];
   }
   actualizarSeleccion(elemento: AprendicesFormadosColDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
   }
   async obtenerData() {
     try {

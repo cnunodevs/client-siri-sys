@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./expertos-int-list.component.scss']
 })
 export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
-
+  idAprendizBorrar: string | null = null;
   expertos: ExpertosInternacionalesDTO[];
 
   constructor(
@@ -19,7 +19,7 @@ export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
   }
 
   actualizarSeleccion(elemento: ExpertosInternacionalesDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
   }
 
   async obtenerData() {

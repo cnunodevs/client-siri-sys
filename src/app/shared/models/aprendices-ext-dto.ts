@@ -9,7 +9,7 @@ export interface AprendicesExtDTO {
     nombre: string;
     fechaInicio: Date; 
     fechaFinal: Date; 
-    pais: PaisDTO;
-    institucion: InstitucionDTO;
-    convenio: ConvenioDTO;
+    pais?: PaisDTO;
+    institucion?: InstitucionDTO;
+    convenio?: ConvenioDTO;
 }

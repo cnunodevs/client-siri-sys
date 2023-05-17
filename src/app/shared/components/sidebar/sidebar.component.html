@@ -40,7 +40,7 @@
                 <span class="text-success" nz-icon nzType="form" [nzTheme]="'outline'" style="font-size: 24px;"></span>
                 <p>Formularios</p>
             </a>
-            <ng-container *ngIf="openMap.sub4">
+            <ng-container *ngIf="openMap.menuForm">
             <ul class="nav">
                 <li routerLinkActive="active" *ngFor="let item of menuForm" class="{{item.class}} nav-item">
                         <a class="nav-link" [routerLink]="item.path">

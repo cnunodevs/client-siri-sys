@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./voluntarios-sena-form-col-list.component.scss']
 })
 export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD {
-
+  idAprendizBorrar :string | null = null;
   voluntarios: VoluntarioAprendicesFormadosColDTO[];
 
   constructor(
@@ -19,7 +19,7 @@ export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD
   }
 
   actualizarSeleccion(elemento: VoluntarioAprendicesFormadosColDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
   }
 
   async obtenerData() {

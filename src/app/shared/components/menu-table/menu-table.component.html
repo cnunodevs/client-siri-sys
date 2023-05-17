@@ -9,10 +9,10 @@
         <button class="btn-warning">
             <span nz-icon nzType="file-excel" nzTheme="outline" [nzTwotoneColor]="'#fff'"></span>
         </button>
-        <button class="btn-success">
+        <button [routerLink]="rutaAgregar" class="btn-success">
             <span nz-icon nzType="plus" nzTheme="outline" [nzTwotoneColor]="'#fff'"></span>
         </button>
-        <button class="btn-danger">
+        <button (click)="borrarData()" class="btn-danger">
             <span nz-icon nzType="delete" nzTheme="outline" [nzTwotoneColor]="'#fff'"></span>
         </button>
         <button class="btn-primary">

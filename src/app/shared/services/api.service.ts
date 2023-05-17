@@ -19,8 +19,8 @@ export class ApiService {
   postDatos<T>(ruta: string, body: T): Observable<T> {
     return this.httpClient.post<T>(`${this.RUTA_BASE}/${ruta}`, body, { headers: this.httpHeaders });
   }
-  deleteDatos<T>(ruta: string): Observable<T> {
-    return this.httpClient.delete<T>(`${this.RUTA_BASE}/${ruta}`, { headers: this.httpHeaders });
+  deleteDatos<T>(ruta: string, id: string): Observable<T> {
+    return this.httpClient.delete<T>(`${this.RUTA_BASE}/${ruta}:${id}`, { headers: this.httpHeaders });
   }
   putDatos<T>(ruta: string, body: T): Observable<T> {
     return this.httpClient.put<T>(`${this.RUTA_BASE}/${ruta}`, body, { headers: this.httpHeaders });

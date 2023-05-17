@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./voluntarios-int-list.component.scss']
 })
 export class VoluntariosIntListComponent implements OnInit , MetodosCRUD {
-
+  idAprendizBorrar :string | null = null;
   voluntarios: VoluntarioInternacionalesColDTO[];
 
   constructor(
@@ -19,7 +19,8 @@ export class VoluntariosIntListComponent implements OnInit , MetodosCRUD {
   }
 
   actualizarSeleccion(elemento: VoluntarioInternacionalesColDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
+
   }
 
   async obtenerData() {

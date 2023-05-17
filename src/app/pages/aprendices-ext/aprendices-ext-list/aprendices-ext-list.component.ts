@@ -9,6 +9,17 @@ import { PeticionesService } from '../../../shared/services/peticiones.service';
   styleUrls: ['./aprendices-ext-list.component.scss']
 })
 export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
+  aprendicesFalse: AprendicesExtDTO[] = [
+    {
+      "id": "1",
+      "objetoFormacion": "xd",
+      "programaFormacion": "xd",
+      "nombre": "xd",
+      "fechaInicio": new Date(), 
+      "fechaFinal": new Date(), 
+    }
+  ];
+  idAprendizBorrar: string | null = null;
   aprendices: AprendicesExtDTO[];
 
   constructor(
@@ -24,9 +35,9 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
       console.log(error);
     }
   }
-  
+
   actualizarSeleccion(elemento: AprendicesExtDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
   }
 
   ngOnInit(): void {

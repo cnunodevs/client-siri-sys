@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col">
-                <app-menu-table></app-menu-table>
+                <app-menu-table [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/aprendiz-ext/form-aprendiz-ext'"></app-menu-table>
             </div>
         </div>
         <div class="row">
@@ -45,15 +45,15 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of aprendices">
+                                    <tr *ngFor="let item of aprendicesFalse">
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
-                                        <td>
+                                        <!-- <td>
                                             {{ item.pais }}
                                         </td>
                                         <td>
                                             {{ item.institucion }}
-                                        </td>
+                                        </td> -->
                                         <td>
                                             {{ item.objetoFormacion }}
                                         </td>
@@ -69,9 +69,9 @@
                                         <td>
                                             {{ item.fechaFinal }}
                                         </td>
-                                        <td class="text-success">
+                                        <!-- <td class="text-success">
                                             {{ item.convenio }}
-                                        </td>
+                                        </td> -->
                                     </tr>
                                 </tbody>
                             </table>

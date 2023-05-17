@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./instructores-ext-list.component.scss']
 })
 export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
-
+  idAprendizBorrar: string | null = null;
   instructores: InstructoresExtDTO[];
 
   constructor(
@@ -19,7 +19,7 @@ export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
   }
 
   actualizarSeleccion(elemento: InstructoresExtDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
   }
 
   async obtenerData() {

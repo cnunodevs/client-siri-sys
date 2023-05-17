@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./personal-apoyo-ext-list.component.scss']
 })
 export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
-
+  idAprendizBorrar: string | null = null;
   personal: PersonalApoyoExteriorDTO[];
 
   constructor(
@@ -19,7 +19,7 @@ export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
   }
 
   actualizarSeleccion(elemento: PersonalApoyoExteriorDTO) {
-    console.log("seleccionada: " + elemento);
+    this.idAprendizBorrar = elemento.id;
   }
 
   async obtenerData() {
