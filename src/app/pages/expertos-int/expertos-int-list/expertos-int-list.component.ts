@@ -18,6 +18,10 @@ export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
     this.expertos = [];
   }
 
+  actualizarSeleccion(elemento: ExpertosInternacionalesDTO) {
+    console.log("seleccionada: " + elemento);
+  }
+
   async obtenerData() {
     try {
       this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/expertos-internacionales/paginate');

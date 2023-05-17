@@ -9,7 +9,6 @@ import { PeticionesService } from '../../../shared/services/peticiones.service';
   styleUrls: ['./aprendices-ext-list.component.scss']
 })
 export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
-
   aprendices: AprendicesExtDTO[];
 
   constructor(
@@ -24,6 +23,10 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
     } catch (error) {
       console.log(error);
     }
+  }
+  
+  actualizarSeleccion(elemento: AprendicesExtDTO) {
+    console.log("seleccionada: " + elemento);
   }
 
   ngOnInit(): void {

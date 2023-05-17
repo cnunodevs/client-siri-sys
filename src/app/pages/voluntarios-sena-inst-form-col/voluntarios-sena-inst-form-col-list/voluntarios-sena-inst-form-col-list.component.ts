@@ -17,7 +17,9 @@ export class VoluntariosSenaInstFormColListComponent implements OnInit , Metodos
   ) { 
     this.voluntarios = [];
   }
-
+  actualizarSeleccion(elemento: VoluntarioInstructoresFormadosColDTO) {
+    console.log("seleccionada: " + elemento);
+  }
   async obtenerData() {
     try {
       this.voluntarios = await this._peticionesService.getDatos<VoluntarioInstructoresFormadosColDTO[]>('api/v1/voluntarios-instructores-formados-col/paginate');

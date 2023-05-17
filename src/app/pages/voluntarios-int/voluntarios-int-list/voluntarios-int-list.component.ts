@@ -18,6 +18,10 @@ export class VoluntariosIntListComponent implements OnInit , MetodosCRUD {
     this.voluntarios = [];
   }
 
+  actualizarSeleccion(elemento: VoluntarioInternacionalesColDTO) {
+    console.log("seleccionada: " + elemento);
+  }
+
   async obtenerData() {
     try {
       this.voluntarios = await this._peticionesService.getDatos<VoluntarioInternacionalesColDTO[]>('api/v1/voluntarios-internacionales/paginate');

@@ -17,37 +17,60 @@
                             <table class="table">
                                 <thead class="text-success">
                                     <th>
-                                        ID
+
                                     </th>
                                     <th>
-                                        Name
+                                        Pais
                                     </th>
                                     <th>
-                                        Country
+                                        Institucion Formadora
                                     </th>
                                     <th>
-                                        City
+                                        Objetivo Formacion
                                     </th>
                                     <th>
-                                        Salary
+                                        Programa Formacion
+                                    </th>
+                                    <th>
+                                        Nombres Completos
+                                    </th>
+                                    <th>
+                                        Fecha Inicio
+                                    </th>
+                                    <th>
+                                        Fecha Final
+                                    </th>
+                                    <th>
+                                        Convenio
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of aprendices">
                                         <td>
-                                            1
+                                            <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
+                                        <td>
+                                            {{ item.pais }}
                                         </td>
                                         <td>
-                                            Dakota Rice
+                                            {{ item.institucion }}
                                         </td>
                                         <td>
-                                            Niger
+                                            {{ item.objetoFormacion }}
                                         </td>
                                         <td>
-                                            Oud-Turnhout
+                                            {{ item.programaFormacion }}
                                         </td>
-                                        <td class="text-primary">
-                                            $36,738
+                                        <td>
+                                            {{ item.nombre }}
+                                        </td>
+                                        <td>
+                                            {{ item.fechaInicio }}
+                                        </td>
+                                        <td>
+                                            {{ item.fechaFinal }}
+                                        </td>
+                                        <td class="text-success">
+                                            {{ item.convenio }}
                                         </td>
                                     </tr>
                                 </tbody>

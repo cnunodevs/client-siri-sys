@@ -18,6 +18,10 @@ export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
     this.personal = [];
   }
 
+  actualizarSeleccion(elemento: PersonalApoyoExteriorDTO) {
+    console.log("seleccionada: " + elemento);
+  }
+
   async obtenerData() {
     try {
       this.personal = await this._peticionesService.getDatos<PersonalApoyoExteriorDTO[]>('api/v1/personal-apoyo-ext/paginate');

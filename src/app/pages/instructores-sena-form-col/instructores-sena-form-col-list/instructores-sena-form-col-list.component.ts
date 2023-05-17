@@ -17,7 +17,9 @@ export class InstructoresSenaFormColListComponent implements OnInit , MetodosCRU
   ) { 
     this.instructores = [];
   }
-
+  actualizarSeleccion(elemento: InstructoresFormadosColDTO) {
+    console.log("seleccionada: " + elemento);
+  }
   async obtenerData() {
     try {
       this.instructores = await this._peticionesService.getDatos<InstructoresFormadosColDTO[]>('api/v1/instructores-formados-col/paginate');

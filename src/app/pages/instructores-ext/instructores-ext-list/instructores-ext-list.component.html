@@ -17,37 +17,63 @@
                             <table class="table">
                                 <thead class="text-success">
                                     <th>
-                                        ID
+
                                     </th>
                                     <th>
-                                        Name
+                                        Pais
                                     </th>
                                     <th>
-                                        Country
+                                        Institucion Receptora
                                     </th>
                                     <th>
-                                        City
+                                        Objetivo Formacion / Transferencia
                                     </th>
                                     <th>
-                                        Salary
+                                        Nombre Completo
+                                    </th>
+                                    <th>
+                                        Cordinadora Academica
+                                    </th>
+                                    <th>
+                                        Planta o Contratista
+                                    </th>
+                                    <th>
+                                        Fecha Inicio
+                                    </th>
+                                    <th>
+                                        Fecha Final
+                                    </th>
+                                    <th>
+                                        Convenio
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of instructores">
                                         <td>
-                                            1
+                                            <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
+                                        <td>
+                                            {{ item.pais }}
                                         </td>
                                         <td>
-                                            Dakota Rice
+                                            {{ item.institucion }}
                                         </td>
                                         <td>
-                                            Niger
+                                            {{ item.nombre }}
                                         </td>
                                         <td>
-                                            Oud-Turnhout
+                                            {{ item.coordinacionAcademica }}
                                         </td>
-                                        <td class="text-primary">
-                                            $36,738
+                                        <td>
+                                            {{ item.contratista }}
+                                        </td>
+                                        <td>
+                                            {{ item.fechaInicio }}
+                                        </td>
+                                        <td>
+                                            {{ item.fechaFinal }}
+                                        </td>
+                                        <td class="text-success">
+                                            {{ item.convenio }}
                                         </td>
                                     </tr>
                                 </tbody>

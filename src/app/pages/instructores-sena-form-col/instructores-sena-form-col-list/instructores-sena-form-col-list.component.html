@@ -17,37 +17,49 @@
                             <table class="table">
                                 <thead class="text-success">
                                     <th>
-                                        ID
+
                                     </th>
                                     <th>
-                                        Name
+                                        Instritucion Internacional Fomadora
                                     </th>
                                     <th>
-                                        Country
+                                        Objetivo Formacion
                                     </th>
                                     <th>
-                                        City
+                                        Nombre Completo
                                     </th>
                                     <th>
-                                        Salary
+                                        Fecha Inicio
+                                    </th>
+                                    <th>
+                                        Fecha Final
+                                    </th>
+                                    <th>
+                                        Convenio
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of instructores">
                                         <td>
-                                            1
+                                            <input type="checkbox" (change)="actualizarSeleccion(item)">
                                         </td>
                                         <td>
-                                            Dakota Rice
+                                            {{ item.institucionFormadoraExt }}
                                         </td>
                                         <td>
-                                            Niger
+                                            {{ item.objetoFormacion }}
                                         </td>
                                         <td>
-                                            Oud-Turnhout
+                                            {{ item.nombre }}
                                         </td>
-                                        <td class="text-primary">
-                                            $36,738
+                                        <td>
+                                            {{ item.fechaInicio }}
+                                        </td>
+                                        <td>
+                                            {{ item.fechaFinal }}
+                                        </td>
+                                        <td class="text-success">
+                                            {{ item.convenio }}
                                         </td>
                                     </tr>
                                 </tbody>

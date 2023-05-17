@@ -17,7 +17,9 @@ export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
   ) { 
     this.aprendices = [];
   }
-
+  actualizarSeleccion(elemento: AprendicesFormadosColDTO) {
+    console.log("seleccionada: " + elemento);
+  }
   async obtenerData() {
     try {
       this.aprendices = await this._peticionesService.getDatos<AprendicesFormadosColDTO[]>('api/v1/aprendices-formados-col/paginate');

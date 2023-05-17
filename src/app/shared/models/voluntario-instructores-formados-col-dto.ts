@@ -4,7 +4,7 @@ import { InstitucionDTO } from "./institucion-dto";
 export interface VoluntarioInstructoresFormadosColDTO {
     id?: string;
     objetoFormacion: string;
-    institucionFormadoraExt: InstitucionDTO;
+    institucionFormadoraExt?: InstitucionDTO;
     nombre: string;
     apellido: string;
     fechaInicial: Date;

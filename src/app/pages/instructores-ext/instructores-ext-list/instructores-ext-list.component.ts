@@ -18,6 +18,10 @@ export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
     this.instructores = [];
   }
 
+  actualizarSeleccion(elemento: InstructoresExtDTO) {
+    console.log("seleccionada: " + elemento);
+  }
+
   async obtenerData() {
     try {
       this.instructores = await this._peticionesService.getDatos<InstructoresExtDTO[]>('api/v1/instructores-ext/paginate');

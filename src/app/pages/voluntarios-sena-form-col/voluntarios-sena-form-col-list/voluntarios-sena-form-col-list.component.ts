@@ -18,6 +18,10 @@ export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD
     this.voluntarios = [];
   }
 
+  actualizarSeleccion(elemento: VoluntarioAprendicesFormadosColDTO) {
+    console.log("seleccionada: " + elemento);
+  }
+
   async obtenerData() {
     try {
       this.voluntarios = await this._peticionesService.getDatos<VoluntarioAprendicesFormadosColDTO[]>('api/v1/voluntarios-aprendices-formados-col/paginate');

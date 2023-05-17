@@ -17,37 +17,42 @@
                             <table class="table">
                                 <thead class="text-success">
                                     <th>
-                                        ID
+
                                     </th>
                                     <th>
-                                        Name
+                                        Objetivo De La Transferencia
                                     </th>
                                     <th>
-                                        Country
+                                        Nombre Completo
                                     </th>
                                     <th>
-                                        City
+                                        Fecha Inicio
                                     </th>
                                     <th>
-                                        Salary
+                                        Fecha Final
+                                    </th>
+                                    <th>
+                                        Convenio
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let item of voluntarios">
                                         <td>
-                                            1
+                                            <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
+                                        <td>
+                                            {{ item.objetoFormacion }}
                                         </td>
                                         <td>
-                                            Dakota Rice
+                                            {{ item.nombre }}
                                         </td>
                                         <td>
-                                            Niger
+                                            {{ item.fechaInicio }}
                                         </td>
                                         <td>
-                                            Oud-Turnhout
+                                            {{ item.fechaFinal }}
                                         </td>
-                                        <td class="text-primary">
-                                            $36,738
+                                        <td class="text-success">
+                                            {{ item.convenio }}
                                         </td>
                                     </tr>
                                 </tbody>
