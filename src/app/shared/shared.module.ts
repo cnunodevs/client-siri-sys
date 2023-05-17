@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
@@ -27,6 +27,7 @@ const COMPONENTES = [
 const MODULOS = [
   CommonModule,
   RouterModule,
+  FormsModule,
   ReactiveFormsModule,
   NzAutocompleteModule,
   NzDropDownModule,

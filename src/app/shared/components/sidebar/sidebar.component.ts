@@ -39,7 +39,10 @@ export const ROUTESFORM: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
   menuForm: any[];
-
+  openMap: { [name: string]: boolean } = {
+    menuItems: false,
+    menuForm: false,
+  };
   constructor() { }
 
   ngOnInit() {
@@ -52,20 +55,12 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
-    openMap: { [name: string]: boolean } = {
-    sub1: true,
-    sub2: false,
-    sub3: false,
-    sub4: false
-  };
 
-  openHandler(value: string): void {
-    for (const key in this.openMap) {
-      if (key !== value) {
-        this.openMap[key] = false;
-      }else{
-        this.openMap[key] = !this.openMap[key];
-      }
-    }
+
+  openMenuItems(value: string): void {
+    this.openMap[value] = !this.openMap[value];
+  }
+  openMenuForm(value: string): void {
+    this.openMap[value] = !this.openMap[value];
   }
 }
