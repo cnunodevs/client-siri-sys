@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-voluntarios-int-form',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./voluntarios-int-form.component.scss']
 })
 export class VoluntariosIntFormComponent implements OnInit {
+  formulario: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      id: [''],
+      nombre: ['', Validators.required],
+      objeto: ['', Validators.required],
+      centroFormacion: ['', Validators.required],
+      fechaInicio: ['', Validators.required],
+      fechaFinal: ['', Validators.required],
+      pais: ['', Validators.required],
+      asesor: ['', Validators.required],
+      convenio: ['', Validators.required]
+    })
   }
 
+  enviarFormulario() {
+    if (this.formulario.valid) {
+      // Aquí puedes hacer lo que necesites con los datos del formulario
+      console.log(this.formulario.value);
+    }
+  }
 }

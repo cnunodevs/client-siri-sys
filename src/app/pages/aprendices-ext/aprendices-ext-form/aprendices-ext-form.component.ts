@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-aprendices-ext-form',
@@ -6,10 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aprendices-ext-form.component.scss']
 })
 export class AprendicesExtFormComponent implements OnInit {
+  formulario: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      id: [''],
+      objetoFormacion: ['', Validators.required],
+      programaFormacion: ['', Validators.required],
+      nombre: ['', Validators.required],
+      fechaInicio: ['', Validators.required],
+      fechaFinal: ['', Validators.required],
+      pais: ['', Validators.required],
+      institucion: ['', Validators.required],
+      convenio: ['', Validators.required]
+    });
   }
 
+  enviarFormulario() {
+    if (this.formulario.valid) {
+      // Aquí puedes hacer lo que necesites con los datos del formulario
+      console.log(this.formulario.value);
+    }
+  }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-instructores-sena-form-col-form',
@@ -6,10 +7,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./instructores-sena-form-col-form.component.scss']
 })
 export class InstructoresSenaFormColFormComponent implements OnInit {
+  formulario: FormGroup;
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.formulario = this.formBuilder.group({
+      id: [''],
+      objetoFormacion: ['', Validators.required],
+      institucionFormadoraExt: ['', Validators.required],
+      nombre: ['', Validators.required],
+      apellido: ['', Validators.required],
+      fechaInicial: ['', Validators.required],
+      fechaFinal: ['', Validators.required],
+      convenio: ['', Validators.required]
+    });
   }
 
+  enviarFormulario() {
+    if (this.formulario.valid) {
+      // Aquí puedes hacer lo que necesites con los datos del formulario
+      console.log(this.formulario.value);
+    }
+  }
 }

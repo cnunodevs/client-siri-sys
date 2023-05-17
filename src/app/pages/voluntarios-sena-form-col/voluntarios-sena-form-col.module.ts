@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VoluntariosSenaFormColRoutingModule } from './voluntarios-sena-form-col-routing.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 import { VoluntariosSenaFormColFormComponent } from './voluntarios-sena-form-col-form/voluntarios-sena-form-col-form.component';
 import { VoluntariosSenaFormColListComponent } from './voluntarios-sena-form-col-list/voluntarios-sena-form-col-list.component';
@@ -17,7 +18,8 @@ import { VoluntariosSenaFormColComponent } from './voluntarios-sena-form-col.com
   ],
   imports: [
     CommonModule,
-    VoluntariosSenaFormColRoutingModule
+    VoluntariosSenaFormColRoutingModule,
+    SharedModule
   ]
 })
 export class VoluntariosSenaFormColModule { }

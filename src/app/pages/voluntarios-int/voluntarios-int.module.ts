@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VoluntariosIntRoutingModule } from './voluntarios-int-routing.module';
+import { SharedModule } from 'app/shared/shared.module';
 
 import { VoluntariosIntListComponent } from './voluntarios-int-list/voluntarios-int-list.component';
 import { VoluntariosIntEditComponent } from './voluntarios-int-edit/voluntarios-int-edit.component';
@@ -17,7 +18,8 @@ import { VoluntariosIntComponent } from './voluntarios-int.component';
   ],
   imports: [
     CommonModule,
-    VoluntariosIntRoutingModule
+    VoluntariosIntRoutingModule,
+    SharedModule
   ]
 })
 export class VoluntariosIntModule { }

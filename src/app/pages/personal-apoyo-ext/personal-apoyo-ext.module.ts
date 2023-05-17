@@ -6,6 +6,7 @@ import { PersonalApoyoExtEditComponent } from './personal-apoyo-ext-edit/persona
 import { PersonalApoyoExtFormComponent } from './personal-apoyo-ext-form/personal-apoyo-ext-form.component';
 import { PersonalApoyoExtListComponent } from './personal-apoyo-ext-list/personal-apoyo-ext-list.component';
 import { PersonalApoyoExtComponent } from './personal-apoyo-ext.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { PersonalApoyoExtComponent } from './personal-apoyo-ext.component';
   imports: [
     CommonModule,
     PersonalApoyoExtRoutingModule,
+    SharedModule
   ]
 })
 export class PersonalApoyoExtModule { }

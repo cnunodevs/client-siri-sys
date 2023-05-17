@@ -2,30 +2,22 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor">
-                    <div class="formulario__contenedor-controles">
+                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                    <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
-                        <input type="number">
+                        <input type="number" formControlName="no">
+                    </div> -->
+                    <div class="formulario__contenedor-controles">
+                        <label>Nombre:</label>
+                        <input type="text" formControlName="nombre">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Pais</label>
-                        <input type="text">
+                        <label>Coordinación Académica:</label>
+                        <input type="text" formControlName="coordinacionAcademica">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Institucion formadora</label>
-                        <input type="text">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Objetivo Formacion</label>
-                        <input type="text">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Programa de formacion</label>
-                        <input type="text">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Nombre Completos</label>
-                        <input type="text">
+                        <label>Contratista:</label>
+                        <input type="text" formControlName="contratista">
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Fecha Inicio</label>
@@ -36,8 +28,16 @@
                         <input type="date">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Convenio</label>
-                        <input type="text">
+                        <label>Pais:</label>
+                        <input type="date" formControlName="pais">
+                    </div>
+                    <div class="formulario__contenedor-controles">
+                        <label>Institucion:</label>
+                        <input type="date" formControlName="institucion">
+                    </div>
+                    <div class="formulario__contenedor-controles">
+                        <label>Convenio:</label>
+                        <input type="date" formControlName="convenio">
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>

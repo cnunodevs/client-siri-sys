@@ -17,6 +17,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/admin/aprendiz-col/list-aprendiz-col', title: 'Aprendices Form. Col.',  icon:'content_paste', class: '' },
     { path: '/admin/instructores-sena-col/list-instructores-int', title: 'Instructores Form. Col',  icon:'content_paste', class: '' },
     { path: '/admin/voluntarios-form-col/list-voluntarios-sena-form', title: 'Voluntarios Form. Col',  icon:'content_paste', class: '' },
+    { path: '/admin/voluntarios-form-inst-col/list-voluntarios-sena-inst-form', title: 'Voluntarios Form. Inst. Col',  icon:'content_paste', class: '' },
     // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
 ];
 

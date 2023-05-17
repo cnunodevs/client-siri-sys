@@ -2,42 +2,38 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor">
-                    <div class="formulario__contenedor-controles">
+                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                    <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number">
+                    </div> -->
+                    <div class="formulario__contenedor-controles">
+                        <label>Objeto:</label>
+                        <input type="text" formControlName="objeto">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Pais</label>
-                        <input type="text">
+                        <label>Cargo:</label>
+                        <input type="text" formControlName="cargo">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Institucion formadora</label>
-                        <input type="text">
+                        <label>Dependencia del SENA:</label>
+                        <input type="text" formControlName="dependenciaSena">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Objetivo Formacion</label>
-                        <input type="text">
+                        <label>Fecha de Inicio:</label>
+                        <input type="date" formControlName="fechaInicio">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Programa de formacion</label>
-                        <input type="text">
+                        <label>Fecha Final:</label>
+                        <input type="date" formControlName="fechaFinal">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Nombre Completos</label>
-                        <input type="text">
+                        <label for="">Institucion:</label>
+                        <input type="text" formControlName="institucion">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Fecha Inicio</label>
-                        <input type="date">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Fecha Final</label>
-                        <input type="date">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Convenio</label>
-                        <input type="text">
+                        <label for="">Asesor</label>
+                        <input type="text" formControlName="asesor">
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>

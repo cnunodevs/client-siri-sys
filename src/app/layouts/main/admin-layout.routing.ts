@@ -41,6 +41,10 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/voluntarios-sena-form-col/voluntarios-sena-form-col.module').then(m => m.VoluntariosSenaFormColModule)
       },
       {
+        path: 'voluntarios-form-inst-col',
+        loadChildren: () => import('../../pages/voluntarios-sena-inst-form-col/voluntarios-sena-inst-form-col.module').then(m => m.VoluntariosSenaInstFormColModule)
+      },
+      {
         path: '',
         redirectTo: 'aprendiz-ext',
         pathMatch: 'full',

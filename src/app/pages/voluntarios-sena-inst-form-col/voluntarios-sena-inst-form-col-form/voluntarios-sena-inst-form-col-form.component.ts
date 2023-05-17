@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-voluntarios-sena-form-col-form',
-  templateUrl: './voluntarios-sena-form-col-form.component.html',
-  styleUrls: ['./voluntarios-sena-form-col-form.component.scss']
+  selector: 'app-voluntarios-sena-inst-form-col-form',
+  templateUrl: './voluntarios-sena-inst-form-col-form.component.html',
+  styleUrls: ['./voluntarios-sena-inst-form-col-form.component.scss']
 })
-export class VoluntariosSenaFormColFormComponent implements OnInit {
+export class VoluntariosSenaInstFormColFormComponent implements OnInit {
   formulario: FormGroup;
 
   constructor(private formBuilder: FormBuilder) { }
@@ -14,12 +14,10 @@ export class VoluntariosSenaFormColFormComponent implements OnInit {
   ngOnInit() {
     this.formulario = this.formBuilder.group({
       id: [''],
+      objetoFormacion: ['', Validators.required],
+      institucionFormadoraExt: ['', Validators.required],
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
-      documento: ['', Validators.required],
-      programaFormacion: ['', Validators.required],
-      instructor: ['', Validators.required],
-      objetoTransferencia: ['', Validators.required],
       fechaInicial: ['', Validators.required],
       fechaFinal: ['', Validators.required],
       convenio: ['', Validators.required]

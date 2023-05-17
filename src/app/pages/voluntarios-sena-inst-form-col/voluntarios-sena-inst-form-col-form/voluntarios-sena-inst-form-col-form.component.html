@@ -2,46 +2,34 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor"  [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number">
                     </div> -->
                     <div class="formulario__contenedor-controles">
+                        <label>Institucion Formadora:</label>
+                        <input type="text" formControlName="institucionFormadoraExt">
+                    </div>
+                    <div class="formulario__contenedor-controles">
                         <label>Nombre:</label>
                         <input type="text" formControlName="nombre">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label>Cargo:</label>
-                        <input type="text" formControlName="cargo">
+                        <label>Apellido:</label>
+                        <input type="text" formControlName="apellido">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Institucion</label>
-                        <input type="text" formControlName="institucion">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label>Objeto:</label>
-                        <input type="text" formControlName="objeto">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label>Fecha de Inicio:</label>
-                        <input type="date" formControlName="fechaInicio">
+                        <label>Fecha Inicial:</label>
+                        <input type="date" formControlName="fechaInicial">
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Fecha Final:</label>
                         <input type="date" formControlName="fechaFinal">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Convenio</label>
+                        <label>Convenio:</label>
                         <input type="text" formControlName="convenio">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Pais</label>
-                        <input type="text" formControlName="pais">
-                    </div>
-                    <div class="formulario__contenedor-controles">
-                        <label for="">Asesor</label>
-                        <input type="text" formControlName="asesor">
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>
