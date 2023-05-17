@@ -16,13 +16,15 @@ export const ROUTES: RouteInfo[] = [
   { path: '/admin/voluntarios-int/form-voluntarios-int', title: 'Voluntarios',  icon:'content_paste', class: '' },
   { path: '/admin/aprendiz-col/form-aprendiz-col', title: 'Aprendices',  icon:'content_paste', class: '' },
   { path: '/admin/instructores-sena-col/form-instructores-int', title: 'Instructores',  icon:'content_paste', class: '' },
-  { path: '/admin/voluntarios-form-col/form-voluntarios-sena-form', title: 'Voluntarios',  icon:'content_paste', class: '' },
+  { path: '/admin/voluntarios-form-col/form-voluntarios-sena-form', title: 'Voluntarios Apren',  icon:'content_paste', class: '' },
+  { path: '/admin/voluntarios-form-inst-col/form-voluntarios-sena-inst-form', title: 'Voluntarios Inst',  icon:'content_paste', class: '' },
   // { path: '/user-profile', title: 'User Profile',  icon:'person', class: '' },
 ];
 
 @Component({
   selector: 'app-footer',
-  templateUrl: './footer.component.html'
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
   test: Date = new Date();

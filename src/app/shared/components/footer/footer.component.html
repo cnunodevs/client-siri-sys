@@ -3,7 +3,7 @@
     <div class="row d-flex justify-content-center">
         <nav class="pull-left">
             <ul>
-                <li *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
+                <li routerLinkActive="active-link" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
                     <a class="nav-link" [routerLink]="menuItem.path">
                         <p>{{menuItem.title}}</p>
                     </a>
