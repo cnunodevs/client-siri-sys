@@ -7,8 +7,7 @@ import { filter, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-admin-layout',
-  templateUrl: './admin-layout.component.html',
-  styleUrls: ['./admin-layout.component.scss']
+  templateUrl: './admin-layout.component.html'
 })
 export class AdminLayoutComponent implements OnInit {
   private _router: Subscription;

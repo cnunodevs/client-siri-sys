@@ -1,0 +1,29 @@
+<section class="contenedor">
+    <div class="contenedor__formulario">
+        <form [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+            <h2 class="text-center">Bienvenido</h2>
+            <span class="text-center">Sistema internacional de registro de documentos</span>
+            <div class="contenedor__formulario-entrada">
+                <label for="email">
+                    Email
+                </label>
+                <input id="email" type="email" placeholder="Ingresa tu email" formControlName="username">
+            </div>
+            <div class="contenedor__formulario-entrada">
+                <label for="clave">
+                    Contraseña
+                </label>
+                <input id="clave" type="password" placeholder="xxxx-xxxx-xxx" formControlName="password">
+            </div>
+            <button type="submit">
+                Iniciar sesión
+            </button>
+            <span>Acepto terminos & condiciones</span>
+        </form>
+    </div>
+    <div class="contenedor__imagen">
+        <picture>
+            <img src="../../../../assets/img/sidebar/logo-sena.png" alt="">
+        </picture>
+    </div>
+</section>
