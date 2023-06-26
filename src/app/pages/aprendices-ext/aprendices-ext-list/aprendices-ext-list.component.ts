@@ -9,8 +9,9 @@ import { PeticionesService } from '../../../shared/services/peticiones.service';
   styleUrls: ['./aprendices-ext-list.component.scss']
 })
 export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
-  idAprendizBorrar: string | null = null;
+  idAprendizBorrar: string | null | number = null;
   aprendices: AprendicesExtDTO[];
+  dataSeleccionada: AprendicesExtDTO;
 
   constructor(
     private _peticionesService: PeticionesService
@@ -20,7 +21,7 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
 
   async obtenerData() {
     try {
-      this.aprendices = await this._peticionesService.getDatos<AprendicesExtDTO[]>('api/v1/aprendices-ext/list/paginate');
+      this.aprendices = await this._peticionesService.getDatos<AprendicesExtDTO[]>('api/v1/aprendices-ext/list/all');
     } catch (error) {
       console.log(error);
     }
@@ -28,6 +29,7 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
 
   actualizarSeleccion(elemento: AprendicesExtDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
 
   ngOnInit(): void {

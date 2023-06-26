@@ -1,7 +1,7 @@
 export interface ConvenioDTO {
-    id?: string;
-    codigo: string;
-    fechaInicial: Date;
-    fechaFinal: Date;
-    detalleConvenio: string;
+    id?: number;
+    codigo?: string;
+    fechaInicial?: Date;
+    fechaFinal?: Date;
+    detalleConvenio?: string;
 }

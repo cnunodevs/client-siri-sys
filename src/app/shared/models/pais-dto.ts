@@ -1,5 +1,5 @@
 export interface PaisDTO {
-    id?: string;
-    nombre: string;
-    abreviatura: string;
+    id?: number;
+    nombre?: string;
+    abreviatura?: string;
 }

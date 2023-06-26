@@ -46,8 +46,8 @@ export class PeticionesService {
       )
     })
   }
-  async deleteDatos<T>(ruta: string, id: string): Promise<T> {
-    this.modal.confirm({
+  async deleteDatos<T>(ruta: string, id: string | number): Promise<T> {
+    this.modal.confirm({ 
       nzTitle: 'Estas seguro que deseas eliminar este Registro',
       nzOkText: 'Si',
       nzOnOk: () => {

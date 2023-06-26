@@ -3,7 +3,7 @@ import { InstitucionDTO } from "./institucion-dto";
 import { PaisDTO } from "./pais-dto";
 
 export interface AprendicesExtDTO {
-    id?: string;
+    id?: number;
     objetoFormacion: string;
     programaFormacion: string;
     nombre: string;

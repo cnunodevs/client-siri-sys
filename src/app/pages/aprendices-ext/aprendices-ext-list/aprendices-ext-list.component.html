@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <app-menu-table [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/aprendiz-ext/form-aprendiz-ext'"></app-menu-table>
+                <app-menu-table [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/aprendiz-ext/form-aprendiz-ext'"></app-menu-table>
             </div>
         </div>
         <div class="row">
@@ -53,12 +53,12 @@
                                     <tr *ngFor="let item of aprendices">
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
-                                        <!-- <td>
-                                            {{ item.pais }}
+                                        <td>
+                                            {{ item.pais.nombre }}
                                         </td>
                                         <td>
-                                            {{ item.institucion }}
-                                        </td> -->
+                                            {{ item.institucion.nombre }}
+                                        </td> 
                                         <td>
                                             {{ item.objetoFormacion }}
                                         </td>
@@ -74,9 +74,9 @@
                                         <td>
                                             {{ item.fechaFinal }}
                                         </td>
-                                        <!-- <td class="text-success">
-                                            {{ item.convenio }}
-                                        </td> -->
+                                        <td class="text-success">
+                                            {{ item.convenio.codigo }}
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
