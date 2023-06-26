@@ -9,9 +9,11 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./voluntarios-sena-form-col-list.component.scss']
 })
 export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD {
-  idAprendizBorrar :string | null = null;
+  idAprendizBorrar :string | null | number = null;
   voluntarios: VoluntarioAprendicesFormadosColDTO[];
-
+  dataSeleccionada: VoluntarioAprendicesFormadosColDTO;
+  path: string = '/admin/voluntarios-form-col/form-voluntarios-sena-form';
+  rutaEliminar: string = 'api/v1/voluntarios-aprendices-formados-col/delete/by-id/'; 
   constructor(
     private _peticionesService: PeticionesService
   ) { 
@@ -20,11 +22,13 @@ export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD
 
   actualizarSeleccion(elemento: VoluntarioAprendicesFormadosColDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
+
 
   async obtenerData() {
     try {
-      this.voluntarios = await this._peticionesService.getDatos<VoluntarioAprendicesFormadosColDTO[]>('api/v1/voluntarios-aprendices-formados-col/paginate');
+      this.voluntarios = await this._peticionesService.getDatos<VoluntarioAprendicesFormadosColDTO[]>('api/v1/voluntarios-aprendices-formados-col/list/all');
     } catch (error) {
       console.log(error);
     }
