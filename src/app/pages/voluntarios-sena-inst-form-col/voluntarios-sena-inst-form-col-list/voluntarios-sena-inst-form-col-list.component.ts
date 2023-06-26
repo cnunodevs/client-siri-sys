@@ -11,15 +11,21 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 export class VoluntariosSenaInstFormColListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
   voluntarios: VoluntarioInstructoresFormadosColDTO[];
+  dataSeleccionada: VoluntarioInstructoresFormadosColDTO;
+  path: string = '/admin/voluntarios-form-inst-col/form-voluntarios-sena-inst-form';
+  rutaEliminar: string = 'api/v1/voluntarios-instructores-formados-col/delete/by-id/'; 
 
   constructor(
     private _peticionesService: PeticionesService
   ) { 
     this.voluntarios = [];
   }
+
   actualizarSeleccion(elemento: VoluntarioInstructoresFormadosColDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
+
   async obtenerData() {
     try {
       this.voluntarios = await this._peticionesService.getDatos<VoluntarioInstructoresFormadosColDTO[]>('api/v1/voluntarios-instructores-formados-col/paginate');
