@@ -41,6 +41,7 @@ export class AsesorFormComponent implements OnInit {
   async enviarFormulario() {
     if (this.formulario.valid) {
       const json: AsesorDTO = {
+        id: 0,
         nombre: this.formulario.value.nombre,
         apellido: this.formulario.value.apellido,
         profesion: this.formulario.value.profesion,

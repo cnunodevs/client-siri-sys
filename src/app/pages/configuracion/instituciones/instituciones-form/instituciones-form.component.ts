@@ -41,6 +41,7 @@ export class InstitucionesFormComponent implements OnInit {
   async enviarFormulario() {
     if (this.formulario.valid) {
       const json: InstitucionDTO = {
+        id: 0,
         codigo: this.formulario.value.codigo,
         nombre: this.formulario.value.nombre,
         tipo: this.formulario.value.tipo,

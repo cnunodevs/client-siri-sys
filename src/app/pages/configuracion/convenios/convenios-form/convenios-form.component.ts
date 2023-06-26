@@ -41,6 +41,7 @@ export class ConveniosFormComponent implements OnInit {
   async enviarFormulario() {
     if (this.formulario.valid) {
       const json: ConvenioDTO = {
+        id: 0,
         codigo: this.formulario.value.codigo,
         fechaInicial: new Date(this.formulario.value.fechaInicial),
         fechaFinal: new Date(this.formulario.value.fechaFinal),

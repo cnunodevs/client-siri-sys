@@ -37,6 +37,7 @@ export class PaisesFormComponent implements OnInit {
   async enviarFormulario() {
     if (this.formulario.valid) {
       const json: PaisDTO = {
+        id: 0,
         nombre: this.formulario.value.nombre,
         abreviatura: this.formulario.value.abreviatura,
       }
