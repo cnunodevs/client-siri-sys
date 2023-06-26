@@ -28,7 +28,7 @@ export class VoluntariosSenaInstFormColListComponent implements OnInit , Metodos
 
   async obtenerData() {
     try {
-      this.voluntarios = await this._peticionesService.getDatos<VoluntarioInstructoresFormadosColDTO[]>('api/v1/voluntarios-instructores-formados-col/paginate');
+      this.voluntarios = await this._peticionesService.getDatos<VoluntarioInstructoresFormadosColDTO[]>('api/v1/voluntarios-instructores-formados-col/list/all');
     } catch (error) {
       console.log(error);
     }

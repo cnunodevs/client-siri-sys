@@ -45,6 +45,22 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/voluntarios-sena-inst-form-col/voluntarios-sena-inst-form-col.module').then(m => m.VoluntariosSenaInstFormColModule)
       },
       {
+        path: 'asesor',
+        loadChildren: () => import('../../pages/configuracion/asesor/asesor.module').then(m => m.AsesorModule)
+      },
+      {
+        path: 'paises',
+        loadChildren: () => import('../../pages/configuracion/paises/paises.module').then(m => m.PaisesModule)
+      },
+      {
+        path: 'instituciones',
+        loadChildren: () => import('../../pages/configuracion/instituciones/instituciones.module').then(m => m.InstitucionesModule)
+      },
+      {
+        path: 'convenios',
+        loadChildren: () => import('../../pages/configuracion/convenios/convenios.module').then(m => m.ConveniosModule)
+      },
+      {
         path: '',
         redirectTo: 'aprendiz-ext',
         pathMatch: 'full',

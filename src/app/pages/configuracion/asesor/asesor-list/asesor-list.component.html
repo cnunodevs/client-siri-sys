@@ -1,0 +1,73 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <app-breadcrumbs></app-breadcrumbs>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'asesor'" [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/expertos-int/form-expertos-int'"></app-menu-table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-success">
+                        <h4 class="card-title ">No. EXPERTOS O FUNCIONARIOS DE OTROS PAISES EN EL SENA - MISIONES
+                            OFICIALES</h4>
+                        <p class="card-category">Listas de No. Expertos o funcionarios de otros paises en el sena -
+                            misiones oficiales</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class="text-success">
+                                    <th>
+
+                                    </th>
+                                    <th>
+                                        Nombre
+                                    </th>
+                                    <th>
+                                        Apellido
+                                    </th>
+                                    <th>
+                                        Profesion
+                                    </th>
+                                    <th>
+                                        Detalle asesoramiento
+                                    </th>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of asesor">
+                                        <td>
+                                            <input type="checkbox" (change)="actualizarSeleccion(item)">
+                                        </td>
+                                        <td>
+                                            {{ item.nombre }}
+                                        </td>
+                                        <td>
+                                            {{ item.apellido }}
+                                        </td>
+                                        <td>
+                                            {{ item.profesion }}
+                                        </td>
+                                        <td>
+                                            {{ item.detalleAsesoramiento }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <app-paginator></app-paginator>
+            </div>
+        </div>
+    </div>
+</div>
