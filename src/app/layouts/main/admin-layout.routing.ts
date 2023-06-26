@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AdminLayoutComponent } from './admin-layout.component';
+import { DashboardsComponent } from 'app/pages/dashboards/dashboards.component';
 
 const routes: Routes = [
   {
@@ -67,6 +68,10 @@ const routes: Routes = [
       {
         path: 'usuarios',
         loadChildren: () => import('../../pages/configuracion/usuarios/usuarios.module').then(m => m.UsuariosModule)
+      },
+      {
+        path: 'dashboards',
+        component: DashboardsComponent
       },
       {
         path: '',

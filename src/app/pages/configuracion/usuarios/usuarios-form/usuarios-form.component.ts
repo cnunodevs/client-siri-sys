@@ -19,10 +19,9 @@ export class UsuariosFormComponent implements OnInit {
   ) {
     this.formulario = this.formBuilder.group({
       id: [''],
-      nombre: ['', Validators.required],
-      descripcion: ['', Validators.required],
-      url: ['', Validators.required],
-      activo: ['', Validators.required],
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      authority: ['', Validators.required]
     });
   }
 
@@ -40,6 +39,7 @@ export class UsuariosFormComponent implements OnInit {
   async enviarFormulario() {
     if (this.formulario.valid) {
       const json: UsusarioDTO = {
+        id: 0,
         username: this.formulario.value.username,
         password: this.formulario.value.password,
         authority: this.formulario.value.authority,

@@ -39,6 +39,7 @@ export class ReportesFormComponent implements OnInit {
   async enviarFormulario() {
     if (this.formulario.valid) {
       const json: ReportesDTO = {
+        id: 0,
         nombre: this.formulario.value.nombre,
         descripcion: this.formulario.value.descripcion,
         url: this.formulario.value.url,

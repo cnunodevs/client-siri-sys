@@ -5,6 +5,7 @@ import { AdminLayoutRoutes } from './admin-layout.routing';
 import { SharedModule } from '../../shared/shared.module';
 
 import { AdminLayoutComponent } from './admin-layout.component';
+import { DashboardsComponent } from 'app/pages/dashboards/dashboards.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { AdminLayoutComponent } from './admin-layout.component';
     SharedModule
   ],
   declarations: [
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    DashboardsComponent
   ]
 })
 export class AdminLayoutModule {}
