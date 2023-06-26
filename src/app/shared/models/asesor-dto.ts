@@ -1,7 +1,7 @@
 export interface AsesorDTO {
-    id?: string;
-    nombre: string;
-    apellido: string;
-    profesion: string;
-    detalleAsesoramiento: string;
+    id?: string | number;
+    nombre?: string;
+    apellido?: string;
+    profesion?: string;
+    detalleAsesoramiento?: string;
 }

@@ -11,6 +11,9 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
   expertos: ExpertosInternacionalesDTO[];
+  dataSeleccionada: ExpertosInternacionalesDTO;
+  path: string = '/admin/expertos-int/form-expertos-int';
+  rutaEliminar: string = 'api/v1/expertos-internacionales/delete/by-id/'; 
 
   constructor(
     private _peticionesService: PeticionesService
@@ -20,11 +23,12 @@ export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
 
   actualizarSeleccion(elemento: ExpertosInternacionalesDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
 
   async obtenerData() {
     try {
-      this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/expertos-internacionales/paginate');
+      this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/expertos-internacionales/list/all');
     } catch (error) {
       console.log(error);
     }
