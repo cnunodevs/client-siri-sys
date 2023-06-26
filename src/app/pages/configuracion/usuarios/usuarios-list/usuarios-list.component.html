@@ -7,7 +7,11 @@
         </div> -->
         <div class="row">
             <div class="col">
-                <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'usuarios'" [dataSeleccionada]="dataSeleccionada" [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'institucion'" [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/instituciones/instituciones-form'"></app-menu-table>
+                <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'usuarios'"
+                    [dataSeleccionada]="dataSeleccionada" [rutaEliminar]="rutaEliminar" [path]="path"
+                    [dataEdit]="'institucion'" [dataSeleccionada]="dataSeleccionada"
+                    [idAprendizBorrar]="idAprendizBorrar" [idAprendizBorrar]="idAprendizBorrar"
+                    [rutaAgregar]="'/admin/usuarios/usuarios-form'"></app-menu-table>
             </div>
         </div>
         <div class="row">
@@ -27,34 +31,28 @@
 
                                     </th>
                                     <th>
-                                        Codigo
+                                        Usuario
                                     </th>
                                     <th>
-                                        Nombre
+                                        Rol
                                     </th>
                                     <th>
-                                        Tipo
-                                    </th>
-                                    <th>
-                                        pais
+                                        Estado
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of institucion">
+                                    <tr *ngFor="let item of Usuarios">
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)">
                                         </td>
                                         <td>
-                                            {{ item.codigo }}
+                                            {{ item.username }}
                                         </td>
                                         <td>
-                                            {{ item.nombre }}
+                                            {{ item.authority }}
                                         </td>
-                                        <td>
-                                            {{ item.tipo }}
-                                        </td>
-                                        <td>
-                                            {{ item.pais.nombre }}
+                                        <td class="text-success">
+                                            {{ item.enabled }}
                                         </td>
                                     </tr>
                                 </tbody>

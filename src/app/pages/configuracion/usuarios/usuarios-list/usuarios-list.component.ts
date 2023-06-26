@@ -9,7 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class UsuariosListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
-  institucion: UsusarioDTO[];
+  Usuarios: UsusarioDTO[];
   dataSeleccionada: UsusarioDTO;
   path: string = '/admin/usuarios/usuarios-form';
   rutaEliminar: string = 'api/v1/usuarios/delete/by-id/'; 
@@ -17,13 +17,13 @@ export class UsuariosListComponent implements OnInit {
   constructor(
     private _peticionesService: PeticionesService
   ) { 
-    this.institucion = [];
+    this.Usuarios = [];
   }
 
   async obtenerData() {
     try {
-      this.institucion = await this._peticionesService.getDatos<UsusarioDTO[]>('api/v1/usuarios/list/all');
-      console.log(this.institucion)
+      this.Usuarios = await this._peticionesService.getDatos<UsusarioDTO[]>('api/v1/usuarios/list/all');
+      console.log(this.Usuarios)
     } catch (error) {
       console.log(error);
     }

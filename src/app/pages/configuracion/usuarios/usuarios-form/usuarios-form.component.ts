@@ -46,19 +46,19 @@ export class UsuariosFormComponent implements OnInit {
       }
       if (this.isEdit) {
         json['id'] = this.dataEdit.id;
-        await this._peticionesService.postDatos("api/v1/reportes/create", json)
+        await this._peticionesService.postDatos("api/v1/usuarios/create", json)
           .then(() => {
             this.formulario.reset();
             this.isEdit = true;
-            localStorage.removeItem("reportes")
+            localStorage.removeItem("usuarios")
           })
         return;
       }
-      await this._peticionesService.postDatos("api/v1/reportes/create", json)
+      await this._peticionesService.postDatos("api/v1/usuarios/create", json)
         .then(() => {
           this.formulario.reset();
           this.isEdit = true;
-          localStorage.removeItem("reportes")
+          localStorage.removeItem("usuarios")
         })
     }
   }

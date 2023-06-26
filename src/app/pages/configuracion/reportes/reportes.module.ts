@@ -5,6 +5,7 @@ import { ReportesRoutingModule } from './reportes-routing.module';
 import { ReportesListComponent } from './reportes-list/reportes-list.component';
 import { ReportesFormComponent } from './reportes-form/reportes-form.component';
 import { ReportesComponent } from './reportes.component';
+import { SharedModule } from 'app/shared/shared.module';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ReportesComponent } from './reportes.component';
   ],
   imports: [
     CommonModule,
-    ReportesRoutingModule
+    ReportesRoutingModule,
+    SharedModule
   ]
 })
 export class ReportesModule { }

@@ -26,7 +26,7 @@ export class ReportesFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataEdit = JSON.parse(localStorage.getItem("reportes"));
+    this.dataEdit = JSON.parse(localStorage.getItem("usuarios"));
     if (this.dataEdit) {
       this.formulario.controls['nombre'].setValue(this.dataEdit.nombre)
       this.formulario.controls['descripcion'].setValue(this.dataEdit.descripcion)
