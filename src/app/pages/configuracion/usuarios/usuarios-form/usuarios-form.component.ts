@@ -43,6 +43,10 @@ export class UsuariosFormComponent implements OnInit {
         username: this.formulario.value.username,
         password: this.formulario.value.password,
         authority: this.formulario.value.authority,
+        enabled: true,
+        accountNonLocked: true,
+        credentialsNonExpired: true,
+        accountNonExpired: true
       }
       if (this.isEdit) {
         json['id'] = this.dataEdit.id;
