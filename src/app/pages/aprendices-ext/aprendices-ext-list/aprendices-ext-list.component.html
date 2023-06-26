@@ -7,7 +7,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <app-menu-table [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/aprendiz-ext/form-aprendiz-ext'"></app-menu-table>
+                <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'aprendizExt'" [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/aprendiz-ext/form-aprendiz-ext'"></app-menu-table>
             </div>
         </div>
         <div class="row">
@@ -54,10 +54,10 @@
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
                                         <td>
-                                            {{ item.pais.nombre }}
+                                            {{ item.pais && item.pais.nombre ? item.pais.nombre : 'N/A' }}
                                         </td>
                                         <td>
-                                            {{ item.institucion.nombre }}
+                                            {{ item.institucion && item.institucion.nombre ? item.institucion.nombre : 'N/A' }}
                                         </td> 
                                         <td>
                                             {{ item.objetoFormacion }}
@@ -75,7 +75,8 @@
                                             {{ item.fechaFinal }}
                                         </td>
                                         <td class="text-success">
-                                            {{ item.convenio.codigo }}
+                                            {{ item.convenio && item.convenio.codigo ? item.convenio.codigo : 'N/A' }}
+
                                         </td>
                                     </tr>
                                 </tbody>

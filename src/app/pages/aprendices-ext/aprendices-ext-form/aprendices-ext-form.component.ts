@@ -31,7 +31,7 @@ export class AprendicesExtFormComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.dataEdit = JSON.parse(localStorage.getItem("data"));
+    this.dataEdit = JSON.parse(localStorage.getItem("aprendizExt"));
     if (this.dataEdit) {
       this.formulario.controls['objetoFormacion'].setValue(this.dataEdit.objetoFormacion)
       this.formulario.controls['programaFormacion'].setValue(this.dataEdit.programaFormacion)
@@ -70,6 +70,7 @@ export class AprendicesExtFormComponent implements OnInit {
           .then(() => {
             this.formulario.reset();
             this.isEdit = true;
+            localStorage.removeItem("aprendizExt")
           })
         return;
       }
@@ -77,6 +78,7 @@ export class AprendicesExtFormComponent implements OnInit {
         .then(() => {
           this.formulario.reset();
           this.isEdit = true;
+          localStorage.removeItem("aprendizExt")
         })
     }
   }

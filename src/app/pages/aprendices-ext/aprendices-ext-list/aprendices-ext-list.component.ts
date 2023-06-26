@@ -12,7 +12,9 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
   idAprendizBorrar: string | null | number = null;
   aprendices: AprendicesExtDTO[];
   dataSeleccionada: AprendicesExtDTO;
-
+  path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
+  rutaEliminar: string = 'api/v1/aprendices-ext/delete/by-id/'; 
+  
   constructor(
     private _peticionesService: PeticionesService
   ) { 
@@ -22,6 +24,7 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
   async obtenerData() {
     try {
       this.aprendices = await this._peticionesService.getDatos<AprendicesExtDTO[]>('api/v1/aprendices-ext/list/all');
+      console.log(this.aprendices)
     } catch (error) {
       console.log(error);
     }

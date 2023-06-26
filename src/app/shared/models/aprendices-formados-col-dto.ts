@@ -1,7 +1,7 @@
 import { ConvenioDTO } from "./convenio-dto";
 
 export interface AprendicesFormadosColDTO {
-    id?: string;
+    id?: string | number;
     nombre: string;
     apellido: string;
     documento: string;

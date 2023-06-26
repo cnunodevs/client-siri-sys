@@ -8,9 +8,12 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./menu-table.component.scss']
 })
 export class MenuTableComponent implements OnInit {
-  @Input() rutaAgregar: string = ''; 
+  @Input() rutaAgregar: string = '';
   @Input() idAprendizBorrar: string | null = null;
   @Input() dataSeleccionada: any;
+  @Input() dataEdit: string = '';
+  @Input() path: string = '';
+  @Input() rutaEliminar: string = '';
   constructor(
     private _peticionesService: PeticionesService,
     private router: Router
@@ -22,18 +25,18 @@ export class MenuTableComponent implements OnInit {
   // }
   async borrarData() {
     try {
-      if(this.idAprendizBorrar != null){
-        await this._peticionesService.deleteDatos("api/v1/aprendices-ext/delete/by-id/", this.idAprendizBorrar)
-      }else{
+      if (this.idAprendizBorrar != null) {
+        await this._peticionesService.deleteDatos(this.rutaEliminar, this.idAprendizBorrar)
+      } else {
         this._peticionesService.mostrarNotificacion("info", "Informacion", "Debe selecionar un elemento de la lista")
       }
-    }catch (error) {
+    } catch (error) {
       console.log(error)
     }
     // this.idAprendizBorrar = null;
   }
   async editarData() {
-    localStorage.setItem("data", JSON.stringify(this.dataSeleccionada));
-    this.router.navigate(['/admin/aprendiz-ext/form-aprendiz-ext'])
+    localStorage.setItem(this.dataEdit, JSON.stringify(this.dataSeleccionada));
+    this.router.navigate([this.path])
   }
 }

@@ -14,8 +14,8 @@ export class ApiService {
   ) { }
 
   getDatos<T>(ruta: string, page: number = 9 , size: number = 5): Observable<T> {
-    const params = new HttpParams().set("page", page).set("size", size);
-    return this.httpClient.get<T>(`${this.RUTA_BASE}/${ruta}`, { headers: this.httpHeaders, params: params });
+    // const params = new HttpParams().set("page", page).set("size", size);
+    return this.httpClient.get<T>(`${this.RUTA_BASE}/${ruta}`, { headers: this.httpHeaders });
   }
   postDatos<T>(ruta: string, body: T): Observable<T> {
     return this.httpClient.post<T>(`${this.RUTA_BASE}/${ruta}`, body, { headers: this.httpHeaders });

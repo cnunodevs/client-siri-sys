@@ -9,9 +9,12 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   styleUrls: ['./aprendices-form-col-list.component.scss']
 })
 export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
-  idAprendizBorrar: string | null = null; 
+  idAprendizBorrar: string | null | number = null; 
   aprendices: AprendicesFormadosColDTO[];
-
+  path: string = '/admin/aprendiz-col/form-aprendiz-col';
+  dataSeleccionada: AprendicesFormadosColDTO;
+  rutaEliminar: string = 'api/v1/aprendices-formados-col/delete/by-id/';
+  
   constructor(
     private _peticionesService: PeticionesService
   ) { 
@@ -19,10 +22,11 @@ export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
   }
   actualizarSeleccion(elemento: AprendicesFormadosColDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
   async obtenerData() {
     try {
-      this.aprendices = await this._peticionesService.getDatos<AprendicesFormadosColDTO[]>('api/v1/aprendices-formados-col/paginate');
+      this.aprendices = await this._peticionesService.getDatos<AprendicesFormadosColDTO[]>('api/v1/aprendices-formados-col/list/all');
     } catch (error) {
       console.log(error);
     }

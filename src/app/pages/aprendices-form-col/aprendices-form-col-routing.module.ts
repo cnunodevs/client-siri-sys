@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AprendicesExtFormComponent } from '../aprendices-ext/aprendices-ext-form/aprendices-ext-form.component';
 import { AprendicesFormColEditComponent } from './aprendices-form-col-edit/aprendices-form-col-edit.component';
 import { AprendicesFormColComponent } from './aprendices-form-col.component';
 import { AprendicesFormColListComponent } from './aprendices-form-col-list/aprendices-form-col-list.component';
+import { AprendicesFormColFormComponent } from './aprendices-form-col-form/aprendices-form-col-form.component';
 
 const routes: Routes = [
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
       },
       {
         path: 'form-aprendiz-col',
-        component: AprendicesExtFormComponent,
+        component: AprendicesFormColFormComponent,
         data: {
           titulo: "Formulario aprendices Colombia",
           describcion: "Sistema De Informacion De Relacionamiento Internacional"
