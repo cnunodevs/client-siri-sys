@@ -11,6 +11,9 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
   personal: PersonalApoyoExteriorDTO[];
+  dataSeleccionada: PersonalApoyoExteriorDTO;
+  path: string = '/admin/personal-apoyo-ext/form-personal-apoyo-ext';
+  rutaEliminar: string = 'api/v1/personal-apoyo-ext/delete/by-id/'; 
 
   constructor(
     private _peticionesService: PeticionesService
@@ -20,11 +23,12 @@ export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
 
   actualizarSeleccion(elemento: PersonalApoyoExteriorDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
 
   async obtenerData() {
     try {
-      this.personal = await this._peticionesService.getDatos<PersonalApoyoExteriorDTO[]>('api/v1/personal-apoyo-ext/paginate');
+      this.personal = await this._peticionesService.getDatos<PersonalApoyoExteriorDTO[]>('api/v1/personal-apoyo-ext/list/all');
     } catch (error) {
       console.log(error);
     }
