@@ -61,6 +61,14 @@ const routes: Routes = [
         loadChildren: () => import('../../pages/configuracion/convenios/convenios.module').then(m => m.ConveniosModule)
       },
       {
+        path: 'reportes',
+        loadChildren: () => import('../../pages/configuracion/reportes/reportes.module').then(m => m.ReportesModule)
+      },
+      {
+        path: 'usuarios',
+        loadChildren: () => import('../../pages/configuracion/usuarios/usuarios.module').then(m => m.UsuariosModule)
+      },
+      {
         path: '',
         redirectTo: 'aprendiz-ext',
         pathMatch: 'full',

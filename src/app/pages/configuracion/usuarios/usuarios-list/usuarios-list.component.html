@@ -7,7 +7,7 @@
         </div> -->
         <div class="row">
             <div class="col">
-                <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'asesor'" [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/asesor/asesor-form'"></app-menu-table>
+                <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'usuarios'" [dataSeleccionada]="dataSeleccionada" [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'institucion'" [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/instituciones/instituciones-form'"></app-menu-table>
             </div>
         </div>
         <div class="row">
@@ -27,34 +27,34 @@
 
                                     </th>
                                     <th>
+                                        Codigo
+                                    </th>
+                                    <th>
                                         Nombre
                                     </th>
                                     <th>
-                                        Apellido
+                                        Tipo
                                     </th>
                                     <th>
-                                        Profesion
-                                    </th>
-                                    <th>
-                                        Detalle asesoramiento
+                                        pais
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of asesor">
+                                    <tr *ngFor="let item of institucion">
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)">
+                                        </td>
+                                        <td>
+                                            {{ item.codigo }}
                                         </td>
                                         <td>
                                             {{ item.nombre }}
                                         </td>
                                         <td>
-                                            {{ item.apellido }}
+                                            {{ item.tipo }}
                                         </td>
                                         <td>
-                                            {{ item.profesion }}
-                                        </td>
-                                        <td>
-                                            {{ item.detalleAsesoramiento }}
+                                            {{ item.pais.nombre }}
                                         </td>
                                     </tr>
                                 </tbody>

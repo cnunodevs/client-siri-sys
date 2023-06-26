@@ -41,6 +41,8 @@ export const ROUTESCONF: RouteInfo[] = [
   { path: '/admin/convenios/convenios-list', title: 'Convenios',  icon:'content_paste', class: '' },
   { path: '/admin/instituciones/instituciones-list', title: 'Instituciones',  icon:'content_paste', class: '' },
   { path: '/admin/paises/paises-list', title: 'Paises',  icon:'content_paste', class: '' },
+  { path: '/admin/reportes/reportes-list', title: 'Reportes',  icon:'content_paste', class: '' },
+  { path: '/admin/usuarios/usuarios-list', title: 'Usuarios',  icon:'content_paste', class: '' }
 ]
 @Component({
   selector: 'app-sidebar',

@@ -1,0 +1,34 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <!-- <div class="row">
+            <div class="col">
+                <app-breadcrumbs></app-breadcrumbs>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col-md-12">
+                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                    <!-- <div class="formulario__contenedor-controles">
+                        <label for="">N"</label>
+                        <input type="number" formControlName="id">
+                    </div> -->
+                    <div class="formulario__contenedor-controles">
+                        <label for="">Nombre</label>
+                        <input type="text" formControlName="nombre">
+                    </div>
+                    <div class="formulario__contenedor-controles">
+                        <label for="">Descripcion</label>
+                        <input type="text" formControlName="descripcion">
+                    </div>
+                    <div class="formulario__contenedor-controles">
+                        <label for="">URL</label>
+                        <input type="text" formControlName="url">
+                    </div>
+                    <div class="formulario__contenedor-boton">
+                        <button type="submit">Guardar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
