@@ -11,6 +11,9 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
   instructores: InstructoresExtDTO[];
+  dataSeleccionada: InstructoresExtDTO;
+  path: string = '/admin/expertos-int/form-expertos-int';
+  rutaEliminar: string = 'api/v1/expertos-internacionales/delete/by-id/'; 
 
   constructor(
     private _peticionesService: PeticionesService
@@ -20,7 +23,9 @@ export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
 
   actualizarSeleccion(elemento: InstructoresExtDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
+
 
   async obtenerData() {
     try {

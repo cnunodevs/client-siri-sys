@@ -13,7 +13,7 @@ export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
   expertos: ExpertosInternacionalesDTO[];
   dataSeleccionada: ExpertosInternacionalesDTO;
   path: string = '/admin/expertos-int/form-expertos-int';
-  rutaEliminar: string = 'api/v1/expertos-internacionales/delete/by-id/'; 
+  rutaEliminar: string = 'api/v1/form-expertos-int'; 
 
   constructor(
     private _peticionesService: PeticionesService
@@ -28,7 +28,7 @@ export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
 
   async obtenerData() {
     try {
-      this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/expertos-internacionales/list/all');
+      this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/instructores-ext/list/all');
     } catch (error) {
       console.log(error);
     }
