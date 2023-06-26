@@ -35,6 +35,13 @@ export const ROUTESFORM: RouteInfo[] = [
   { path: '/admin/voluntarios-form-col/form-voluntarios-sena-form', title: 'Voluntarios Apren',  icon:'content_paste', class: '' },
   { path: '/admin/voluntarios-form-inst-col/form-voluntarios-sena-inst-form', title: 'Voluntarios Inst',  icon:'content_paste', class: '' },
 ]
+
+export const ROUTESCONF: RouteInfo[] = [
+  { path: '/admin/asesor/asesor-list', title: 'Asesor',  icon: 'content_paste', class: '' },
+  { path: '/admin/convenios/convenios-list', title: 'Convenios',  icon:'content_paste', class: '' },
+  { path: '/admin/instituciones/instituciones-list', title: 'Instituciones',  icon:'content_paste', class: '' },
+  { path: '/admin/paises/paises-list', title: 'Paises',  icon:'content_paste', class: '' },
+]
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html'
@@ -42,9 +49,11 @@ export const ROUTESFORM: RouteInfo[] = [
 export class SidebarComponent implements OnInit {
   menuItems: any[];
   menuForm: any[];
+  menuConf: any[];
   openMap: { [name: string]: boolean } = {
     menuItems: false,
     menuForm: false,
+    menuConf: false,
   };
   constructor(
     private _peticionesService: PeticionesService,
@@ -55,6 +64,8 @@ export class SidebarComponent implements OnInit {
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
     this.menuForm = ROUTESFORM.filter(menuForm => menuForm);
+    this.menuConf = ROUTESCONF.filter(menuConf => menuConf);
+
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
@@ -70,7 +81,9 @@ export class SidebarComponent implements OnInit {
   openMenuForm(value: string): void {
     this.openMap[value] = !this.openMap[value];
   }
- 
+  openMenuConf(value: string): void {
+    this.openMap[value] = !this.openMap[value];
+  }
   async logout() {
     // await this._peticionesService.getDatos("api/v1/auth/logout");
     this._tokenService.clearToken();

@@ -53,7 +53,7 @@
             </ng-container>
         </li>
         <li routerLinkActive="active" class="nav-item">
-            <a class="nav-link"
+            <a class="nav-link" (click)="openMenuConf('menuConf')"
                 style="display: flex; align-items: center; height: 100%; gap: 12px">
                 <span class="text-success" nz-icon nzType="setting" [nzTheme]="'outline'"
                     style="font-size: 24px;"></span>
@@ -61,6 +61,17 @@
                     Configuraciones
                 </p>
             </a>
+            <ng-container *ngIf="openMap.menuConf">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let item of menuConf" class="{{item.class}} nav-item">
+                            <a class="nav-link" [routerLink]="item.path">
+                                <i class="text-success" nz-icon nzType="form" [nzTheme]="'outline'"
+                                    style="font-size: 24px;"></i>
+                                <p>{{item.title}}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </ng-container>
         </li>
     </ul>
     <ul class="nav">
