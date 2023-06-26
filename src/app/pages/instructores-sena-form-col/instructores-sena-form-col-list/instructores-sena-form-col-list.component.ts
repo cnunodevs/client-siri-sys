@@ -11,23 +11,29 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 export class InstructoresSenaFormColListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
   instructores: InstructoresFormadosColDTO[];
+  dataSeleccionada: InstructoresFormadosColDTO;
+  path: string = '/admin/instructores-sena-col/form-instructores-int';
+  rutaEliminar: string = 'api/v1/instructores-formados-col/delete/by-id/'; 
 
   constructor(
     private _peticionesService: PeticionesService
   ) { 
     this.instructores = [];
   }
+
   actualizarSeleccion(elemento: InstructoresFormadosColDTO) {
     this.idAprendizBorrar = elemento.id;
+    this.dataSeleccionada = elemento;
   }
+
+
   async obtenerData() {
     try {
-      this.instructores = await this._peticionesService.getDatos<InstructoresFormadosColDTO[]>('api/v1/instructores-formados-col/paginate');
+      this.instructores = await this._peticionesService.getDatos<InstructoresFormadosColDTO[]>('api/v1/instructores-formados-col/list/all');
     } catch (error) {
       console.log(error);
     }
   }
-
   ngOnInit(): void {
     this.obtenerData();
   }

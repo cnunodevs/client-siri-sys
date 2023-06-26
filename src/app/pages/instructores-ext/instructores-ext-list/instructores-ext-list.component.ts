@@ -29,7 +29,7 @@ export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
 
   async obtenerData() {
     try {
-      this.instructores = await this._peticionesService.getDatos<InstructoresExtDTO[]>('api/v1/instructores-ext/paginate');
+      this.instructores = await this._peticionesService.getDatos<InstructoresExtDTO[]>('api/v1/instructores-ext/list/all');
     } catch (error) {
       console.log(error);
     }

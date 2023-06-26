@@ -54,44 +54,40 @@ export class InstructoresExtFormComponent implements OnInit {
 
   async enviarFormulario() {
     if (this.formulario.valid) {
-      if (this.formulario.valid) {
-        if (this.formulario.valid) {
-          const json: InstructoresExtDTO = {
-            no: this.formulario.value.no,
-            nombre: this.formulario.value.nombre,
-            objeto: this.formulario.value.objeto,
-            coordinacionAcademica: this.formulario.value.coordinacionAcademica,
-            contratista: this.formulario.value.contratista,
-            fechaInicio: new Date(this.formulario.value.fechaInicio),
-            fechaFinal: new Date(this.formulario.value.fechaFinal),
-            pais: {
-              id: 1
-            },
-            institucion: {
-              id: 1
-            },
-            convenio: {
-              id: 1
-            }
-          }
-          if (this.isEdit) {
-            json['id'] = this.dataEdit.id;
-            await this._peticionesService.postDatos("api/v1/expertos-internacionales/create", json)
-              .then(() => {
-                this.formulario.reset();
-                this.isEdit = true;
-                localStorage.removeItem("intructoresExt")
-              })
-            return;
-          }
-          await this._peticionesService.postDatos("api/v1/expertos-internacionales/create", json)
-            .then(() => {
-              this.formulario.reset();
-              this.isEdit = true;
-              localStorage.removeItem("intructoresExt")
-            })
+      const json: InstructoresExtDTO = {
+        no: this.formulario.value.no,
+        nombre: this.formulario.value.nombre,
+        objeto: this.formulario.value.objeto,
+        coordinacionAcademica: this.formulario.value.coordinacionAcademica,
+        contratista: this.formulario.value.contratista,
+        fechaInicio: new Date(this.formulario.value.fechaInicio),
+        fechaFinal: new Date(this.formulario.value.fechaFinal),
+        pais: {
+          id: 1
+        },
+        institucion: {
+          id: 1
+        },
+        convenio: {
+          id: 1
         }
       }
+      if (this.isEdit) {
+        json['id'] = this.dataEdit.id;
+        await this._peticionesService.postDatos("api/v1/expertos-internacionales/create", json)
+          .then(() => {
+            this.formulario.reset();
+            this.isEdit = true;
+            localStorage.removeItem("intructoresExt")
+          })
+        return;
+      }
+      await this._peticionesService.postDatos("api/v1/expertos-internacionales/create", json)
+        .then(() => {
+          this.formulario.reset();
+          this.isEdit = true;
+          localStorage.removeItem("intructoresExt")
+        })
     }
   }
 }
