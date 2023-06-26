@@ -1,11 +1,12 @@
 import { NgModule } from "@angular/core";
-import { Routes, RouterModule } from "@angular/router";
+import { Routes, RouterModule, CanActivate } from '@angular/router';
+import { AuthGuard } from "./auth/guards/auth.guard";
 
 const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'admin'
+        redirectTo: 'auth'
     },
     {
         path: 'admin',
@@ -13,6 +14,7 @@ const routes: Routes = [
             import("./layouts/main/admin-layout.module").then(
                 (m) => m.AdminLayoutModule
             ),
+        canActivate: [AuthGuard]
     },
     {
         path: 'auth',
@@ -24,7 +26,7 @@ const routes: Routes = [
     {
         path: '**',
         pathMatch: 'full',
-        redirectTo: 'admin'
+        redirectTo: 'auth'
     },
 ];
 @NgModule({

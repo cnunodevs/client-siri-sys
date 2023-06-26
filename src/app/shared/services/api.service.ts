@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'environments/environment';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ApiService {
   private httpHeaders = new HttpHeaders({ 'Content-type': 'application/json' })
-  private RUTA_BASE = 'http://localhost:4200';
+  private RUTA_BASE = environment.url;
   constructor(
     private httpClient: HttpClient
   ) { }

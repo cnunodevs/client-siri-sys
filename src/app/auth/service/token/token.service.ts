@@ -19,8 +19,8 @@ export class TokenService {
     return this.token! || localStorage.getItem('token');
   }
 
-  setToken(token: Token): void {
-    this.token = token.token;
+  setToken(token): void {
+    this.token = token;
     localStorage.setItem('token', this.token);
   }
 

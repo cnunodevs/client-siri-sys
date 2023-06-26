@@ -30,8 +30,22 @@ export class PeticionesService {
       )
     })
   }
-  // postDatos<T>(ruta: string, body: T): Promise<T> {
-  // }
+  postDatos<T>(ruta: string, body: T): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+      this._apiService.postDatos(ruta, body).subscribe(
+        {
+          next: (value: T) => {
+            this.mostrarNotificacion('success', 'Éxito', 'Datos Enviados correctamente');
+            resolve(value)
+          },
+          error: (err: any) => {
+            this.mostrarNotificacion('error', 'Error', 'Ocurrió un error en el envio de los datos');
+            reject(err)
+          }
+        }
+      )
+    })
+  }
   async deleteDatos<T>(ruta: string, id: string): Promise<T> {
     this.modal.confirm({
       nzTitle: 'Estas seguro que deseas eliminar este Registro',

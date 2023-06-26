@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TokenService } from 'app/auth/service/token/token.service';
+import { PeticionesService } from 'app/shared/services/peticiones.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -43,7 +46,11 @@ export class SidebarComponent implements OnInit {
     menuItems: false,
     menuForm: false,
   };
-  constructor() { }
+  constructor(
+    private _peticionesService: PeticionesService,
+    private _tokenService: TokenService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
@@ -62,5 +69,12 @@ export class SidebarComponent implements OnInit {
   }
   openMenuForm(value: string): void {
     this.openMap[value] = !this.openMap[value];
+  }
+ 
+  async logout() {
+    // await this._peticionesService.getDatos("api/v1/auth/logout");
+    this._tokenService.clearToken();
+    this.router.navigate(['/auth/login'])
+
   }
 }
