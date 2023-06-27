@@ -7,7 +7,7 @@ import { Usuario } from '../models/usuario';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate, CanActivateChild {
+export class ModuloGuard implements CanActivateChild {
 
   constructor(
     private _tokenService: TokenService,
@@ -15,20 +15,11 @@ export class AuthGuard implements CanActivate, CanActivateChild {
   ) { }
   canActivateChild(childRoute: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
     const token: Usuario = this._tokenService.decodeToken();
-    if (token.role == "ROLE_ADMINISTRADOR" || token.role == "ROLE_SUPERVISOR") {
+    if (token.role == "ROLE_ADMINISTRADOR") {
       return true;
     }
     this.router.navigate(['/admin/dashboards'])
     return false;
   }
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    const token = this._tokenService.getToken();
-    console.log(token)
-    if (token) {
-      return true;
-    }
-    this.router.navigate(['/auth/login'])
-    return false;
-  }
 }

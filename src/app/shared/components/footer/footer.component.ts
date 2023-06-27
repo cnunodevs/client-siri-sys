@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Usuario } from 'app/auth/models/usuario';
+import { TokenService } from 'app/auth/service/token/token.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -27,10 +29,15 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  token: Usuario;
   test: Date = new Date();
   menuItems: any[];
 
-  constructor() { }
+  constructor(
+    private _tokenService: TokenService,
+  ) { 
+    this.token = this._tokenService.decodeToken();
+  }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

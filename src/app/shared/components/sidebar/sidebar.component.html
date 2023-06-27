@@ -16,7 +16,7 @@
                 <p>Panel</p>
             </a>
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li routerLinkActive="active" class="nav-item" *ngIf="token.role == 'ROLE_ADMINISTRADOR' || token.role == 'ROLE_SUPERVISOR'">
             <a class="nav-link" (click)="openMenuItems('menuItems')"
                 style="display: flex; align-items: center; height: 100%; gap: 12px">
                 <span class="text-success" nz-icon nzType="database" [nzTheme]="'outline'"
@@ -34,7 +34,7 @@
                 </ul>
             </ng-container>
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li routerLinkActive="active" class="nav-item" *ngIf="token.role == 'ROLE_ADMINISTRADOR' || token.role == 'ROLE_SUPERVISOR'">
             <a class="nav-link" (click)="openMenuForm('menuForm')"
                 style="display: flex; align-items: center; height: 100%; gap: 12px">
                 <span class="text-success" nz-icon nzType="form" [nzTheme]="'outline'" style="font-size: 24px;"></span>
@@ -52,7 +52,7 @@
                 </ul>
             </ng-container>
         </li>
-        <li routerLinkActive="active" class="nav-item">
+        <li routerLinkActive="active" class="nav-item" *ngIf="token.role == 'ROLE_ADMINISTRADOR'">
             <a class="nav-link" (click)="openMenuConf('menuConf')"
                 style="display: flex; align-items: center; height: 100%; gap: 12px">
                 <span class="text-success" nz-icon nzType="setting" [nzTheme]="'outline'"

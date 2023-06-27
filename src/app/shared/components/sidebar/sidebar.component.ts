@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from 'app/auth/models/usuario';
 import { TokenService } from 'app/auth/service/token/token.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
 
@@ -49,6 +50,7 @@ export const ROUTESCONF: RouteInfo[] = [
   templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
+  token: Usuario;
   menuItems: any[];
   menuForm: any[];
   menuConf: any[];
@@ -61,7 +63,10 @@ export class SidebarComponent implements OnInit {
     private _peticionesService: PeticionesService,
     private _tokenService: TokenService,
     private router: Router
-  ) { }
+  ) { 
+    this.token = this._tokenService.decodeToken();
+    console.log(this.token)
+  }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
