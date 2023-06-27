@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-menu-table',
@@ -38,5 +39,17 @@ export class MenuTableComponent implements OnInit {
   async editarData() {
     localStorage.setItem(this.dataEdit, JSON.stringify(this.dataSeleccionada));
     this.router.navigate([this.path])
+  }
+
+  cargarFile() {
+    Swal.fire({
+      title: 'Cargar por archivo',
+      text: "No disponible por el momento, en etapa de desarrollo",
+      icon: 'info',
+      showCancelButton: false,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'De, acuerdo'
+    })
   }
 }

@@ -6,7 +6,7 @@
           </div>
     </div>
     <div class="contenedor__opciones">
-        <button class="btn-warning">
+        <button (click)="cargarFile()" class="btn-warning">
             <span nz-icon nzType="file-excel" nzTheme="outline" [nzTwotoneColor]="'#fff'"></span>
         </button>
         <button [routerLink]="rutaAgregar" class="btn-success">
