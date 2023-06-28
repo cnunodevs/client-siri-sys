@@ -13,13 +13,13 @@ export class ReportesListComponent implements OnInit {
   reportes: ReportesDTO[];
   dataSeleccionada: ReportesDTO;
   path: string = '/admin/reportes/reportes-form';
-  rutaEliminar: string = 'api/v1/reportes/delete/by-id/'; 
+  rutaEliminar: string = 'api/v1/reportes/delete/by-id/';
   numberRow: number = 5;
   page: number = 1;
-  
+
   constructor(
     private _peticionesService: PeticionesService
-  ) { 
+  ) {
     this.reportes = [];
   }
 
@@ -41,5 +41,13 @@ export class ReportesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerData();
+  }
+  // Paginador
+  onChangeRowPerPage(event: number): void {
+    this.numberRow = event;
+    this.page = 1;
+  }
+  onChangePage(event: number): void {
+    this.page = event;
   }
 }

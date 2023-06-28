@@ -72,7 +72,11 @@
         </div>
         <div class="row">
             <div class="col">
-                <app-paginator [numberRow]="numberRow" [page]="page"></app-paginator>
+                <div class="col-sm d-flex justify-content-end pe-4">
+                    <pagination-controls id="table" previousLabel="Anterior" nextLabel="Siguiente"
+                      (pageChange)="onChangePage($event)" (pageBoundsCorrection)="onChangePage($event)">
+                    </pagination-controls>
+                  </div>
             </div>
         </div>
     </div>

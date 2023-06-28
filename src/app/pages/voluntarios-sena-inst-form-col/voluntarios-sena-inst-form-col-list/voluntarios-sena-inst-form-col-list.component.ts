@@ -8,19 +8,19 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './voluntarios-sena-inst-form-col-list.component.html',
   styleUrls: ['./voluntarios-sena-inst-form-col-list.component.scss']
 })
-export class VoluntariosSenaInstFormColListComponent implements OnInit , MetodosCRUD {
+export class VoluntariosSenaInstFormColListComponent implements OnInit, MetodosCRUD {
   idAprendizBorrar: string | null = null;
   loading: boolean = false;
   voluntarios: VoluntarioInstructoresFormadosColDTO[];
   dataSeleccionada: VoluntarioInstructoresFormadosColDTO;
   path: string = '/admin/voluntarios-form-inst-col/form-voluntarios-sena-inst-form';
-  rutaEliminar: string = 'api/v1/voluntarios-instructores-formados-col/delete/by-id/'; 
+  rutaEliminar: string = 'api/v1/voluntarios-instructores-formados-col/delete/by-id/';
   numberRow: number = 5;
   page: number = 1;
-  
+
   constructor(
     private _peticionesService: PeticionesService
-  ) { 
+  ) {
     this.voluntarios = [];
   }
 
@@ -41,5 +41,13 @@ export class VoluntariosSenaInstFormColListComponent implements OnInit , Metodos
 
   ngOnInit(): void {
     this.obtenerData();
+  }
+  // Paginador
+  onChangeRowPerPage(event: number): void {
+    this.numberRow = event;
+    this.page = 1;
+  }
+  onChangePage(event: number): void {
+    this.page = event;
   }
 }

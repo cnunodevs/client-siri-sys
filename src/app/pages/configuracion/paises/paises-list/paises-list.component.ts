@@ -13,13 +13,13 @@ export class PaisesListComponent implements OnInit {
   pais: PaisDTO[];
   dataSeleccionada: PaisDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
-  rutaEliminar: string = 'api/v1/paises/delete/by-id/'; 
+  rutaEliminar: string = 'api/v1/paises/delete/by-id/';
   numberRow: number = 5;
   page: number = 1;
-  
+
   constructor(
     private _peticionesService: PeticionesService
-  ) { 
+  ) {
     this.pais = [];
   }
 
@@ -41,5 +41,13 @@ export class PaisesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.obtenerData();
+  }
+  // Paginador
+  onChangeRowPerPage(event: number): void {
+    this.numberRow = event;
+    this.page = 1;
+  }
+  onChangePage(event: number): void {
+    this.page = event;
   }
 }

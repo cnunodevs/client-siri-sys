@@ -43,4 +43,12 @@ export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD
   ngOnInit(): void {
     this.obtenerData();
   }
+      // Paginador
+      onChangeRowPerPage(event: number): void {
+        this.numberRow = event;
+        this.page = 1;
+      }
+      onChangePage(event: number): void {
+        this.page = event;
+      }
 }
