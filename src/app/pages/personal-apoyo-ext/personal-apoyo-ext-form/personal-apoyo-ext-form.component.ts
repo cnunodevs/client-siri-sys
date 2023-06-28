@@ -17,6 +17,7 @@ export class PersonalApoyoExtFormComponent implements OnInit, OnDestroy {
   dataEdit: PersonalApoyoExteriorDTO;
   asesor: AsesorDTO[] = [];
   institucion: InstitucionDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -74,8 +75,14 @@ export class PersonalApoyoExtFormComponent implements OnInit, OnDestroy {
     )
   }
 
+  estadoFormulario() {
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+    this.formularioEnviado = false;
       // Aquí puedes hacer lo que necesites con los datos del formulario
       const json: PersonalApoyoExteriorDTO = {
         objeto: this.formulario.value.objeto,

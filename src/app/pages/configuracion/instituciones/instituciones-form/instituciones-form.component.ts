@@ -15,6 +15,7 @@ export class InstitucionesFormComponent implements OnInit, OnDestroy {
   isEdit: boolean = false;
   dataEdit: InstitucionDTO;
   pais: PaisDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -56,8 +57,14 @@ export class InstitucionesFormComponent implements OnInit, OnDestroy {
     )
   }
 
+  estadoFormulario(){
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+    this.formularioEnviado = false;
       const json: InstitucionDTO = {
         id: 0,
         codigo: this.formulario.value.codigo,

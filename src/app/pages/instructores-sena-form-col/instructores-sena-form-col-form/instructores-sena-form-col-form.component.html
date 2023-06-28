@@ -7,7 +7,7 @@
         </div> -->
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number">
@@ -15,34 +15,69 @@
                     <div class="formulario__contenedor-controles">
                         <label>Objeto de Formación:</label>
                         <input type="text" formControlName="objetoFormacion">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Institucion formadora</label>
                         <select formControlName="institucionFormadoraExt">
                             <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
                         </select>
+                        <div
+                        *ngIf="formulario.get('institucionFormadoraExt').invalid && (formulario.get('institucionFormadoraExt').dirty || formulario.get('institucionFormadoraExt').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Nombre:</label>
                         <input type="text" formControlName="nombre">
+                        <div
+                        *ngIf="formulario.get('nombre').invalid && (formulario.get('nombre').dirty || formulario.get('nombre').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Apellido:</label>
                         <input type="text" formControlName="apellido">
+                        <div
+                        *ngIf="formulario.get('apellido').invalid && (formulario.get('apellido').dirty || formulario.get('apellido').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Fecha Inicio</label>
                         <input type="date" formControlName="fechaInicial">
+                        <div
+                        *ngIf="formulario.get('fechaInicial').invalid && (formulario.get('fechaInicial').dirty || formulario.get('fechaInicial').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Fecha Final</label>
                         <input type="date" formControlName="fechaFinal">
+                        <div
+                        *ngIf="formulario.get('fechaFinal').invalid && (formulario.get('fechaFinal').dirty || formulario.get('fechaFinal').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Convenio</label>
                         <select formControlName="convenio">
                             <option [value]="item.id" *ngFor="let item of convenios">{{ item.codigo }}</option>
                         </select>
+                        <div
+                        *ngIf="formulario.get('convenio').invalid && (formulario.get('convenio').dirty || formulario.get('convenio').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>

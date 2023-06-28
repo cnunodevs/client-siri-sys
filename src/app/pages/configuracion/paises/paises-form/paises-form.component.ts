@@ -12,6 +12,7 @@ export class PaisesFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: PaisDTO;
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,8 +38,15 @@ export class PaisesFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  estadoFormulario(){
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+    this.formularioEnviado = false;
       const json: PaisDTO = {
         id: 0,
         nombre: this.formulario.value.nombre,

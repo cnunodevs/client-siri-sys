@@ -15,6 +15,7 @@ export class AprendicesFormColFormComponent implements OnInit, OnDestroy {
   isEdit: boolean = false;
   dataEdit: AprendicesFormadosColDTO;
   convenios: ConvenioDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -66,9 +67,15 @@ export class AprendicesFormColFormComponent implements OnInit, OnDestroy {
       }
     )
   }
+  
+  estadoFormulario(){
+    this.formularioEnviado = false;
+  }
 
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+    this.formularioEnviado = true;
       const json: AprendicesFormadosColDTO = {
         documento: this.formulario.value.documento,
         nombre: this.formulario.value.nombre,

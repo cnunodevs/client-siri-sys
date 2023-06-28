@@ -19,12 +19,13 @@ export class VoluntariosIntFormComponent implements OnInit, OnDestroy {
   asesor: AsesorDTO[] = [];
   convenios: ConvenioDTO[] = [];
   pais: PaisDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private _apiService: ApiService,
     private _peticionesService: PeticionesService
-    ) {
+  ) {
     this.formulario = this.formBuilder.group({
       id: [''],
       nombre: ['', Validators.required],
@@ -62,30 +63,36 @@ export class VoluntariosIntFormComponent implements OnInit, OnDestroy {
   async cargarData() {
     await this._apiService.convenios$.subscribe(
       {
-          next: (value: ConvenioDTO[]) => {
-            this.convenios = value;
-          }
+        next: (value: ConvenioDTO[]) => {
+          this.convenios = value;
+        }
       }
     )
     await this._apiService.pais$.subscribe(
       {
-          next: (value: PaisDTO[]) => {
-            this.pais = value;
-          }
+        next: (value: PaisDTO[]) => {
+          this.pais = value;
+        }
       }
     )
 
     await this._apiService.asesor$.subscribe(
       {
-          next: (value: AsesorDTO[]) => {
-            this.asesor = value;
-          }
+        next: (value: AsesorDTO[]) => {
+          this.asesor = value;
+        }
       }
     )
   }
 
+  estadoFormulario() {
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = false;
       // Aquí puedes hacer lo que necesites con los datos del formulario
       const json: VoluntarioInternacionalesColDTO = {
         nombre: this.formulario.value.objeto,

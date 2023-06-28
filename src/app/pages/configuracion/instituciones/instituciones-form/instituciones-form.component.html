@@ -7,7 +7,7 @@
         </div> -->
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number" formControlName="id">
@@ -15,20 +15,40 @@
                     <div class="formulario__contenedor-controles">
                         <label for="">Codigo</label>
                         <input type="text" formControlName="codigo">
+                        <div
+                        *ngIf="formulario.get('codigo').invalid && (formulario.get('codigo').dirty || formulario.get('codigo').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Nombre</label>
                         <input type="text" formControlName="nombre">
+                        <div
+                        *ngIf="formulario.get('nombre').invalid && (formulario.get('nombre').dirty || formulario.get('nombre').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Tipo</label>
                         <input type="text" formControlName="tipo">
+                        <div
+                        *ngIf="formulario.get('tipo').invalid && (formulario.get('tipo').dirty || formulario.get('tipo').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Pais</label>
                         <select formControlName="pais">
                             <option [value]="item.id" *ngFor="let item of pais">{{ item.nombre }}</option>
                         </select>
+                        <div
+                        *ngIf="formulario.get('pais').invalid && (formulario.get('pais').dirty || formulario.get('pais').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button type="submit">Guardar</button>

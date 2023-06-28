@@ -19,7 +19,7 @@ export class AprendicesExtFormComponent implements OnInit, OnDestroy {
   convenios: ConvenioDTO[] = [];
   pais: PaisDTO[] = [];
   institucion: InstitucionDTO[] = [];
-
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -84,9 +84,14 @@ export class AprendicesExtFormComponent implements OnInit, OnDestroy {
       }
     )
   }
+  estadoFormulario(){
+    this.formularioEnviado = false;
+  }
 
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = false;
       const json: AprendicesExtDTO = {
         objetoFormacion: this.formulario.value.objetoFormacion,
         programaFormacion: this.formulario.value.programaFormacion,

@@ -12,6 +12,7 @@ export class ConveniosFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: ConvenioDTO;
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -41,8 +42,14 @@ export class ConveniosFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  estadoFormulario(){
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+    this.formularioEnviado = false;
       const json: ConvenioDTO = {
         id: 0,
         codigo: this.formulario.value.codigo,

@@ -19,6 +19,7 @@ export class InstructoresExtFormComponent implements OnInit, OnDestroy {
   convenios: ConvenioDTO[] = [];
   pais: PaisDTO[] = [];
   institucion: InstitucionDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -67,32 +68,37 @@ export class InstructoresExtFormComponent implements OnInit, OnDestroy {
   async cargarData() {
     await this._apiService.convenios$.subscribe(
       {
-          next: (value: ConvenioDTO[]) => {
-            this.convenios = value;
-          }
+        next: (value: ConvenioDTO[]) => {
+          this.convenios = value;
+        }
       }
     )
     await this._apiService.pais$.subscribe(
       {
-          next: (value: PaisDTO[]) => {
-            console.log(value)
-            this.pais = value;
-          }
+        next: (value: PaisDTO[]) => {
+          console.log(value)
+          this.pais = value;
+        }
       }
     )
     await this._apiService.instituciones$.subscribe(
       {
-          next: (value: InstitucionDTO[]) => {
-            console.log(value)
-            this.institucion = value;
-          }
+        next: (value: InstitucionDTO[]) => {
+          console.log(value)
+          this.institucion = value;
+        }
       }
     )
   }
 
+  estadoFormulario() {
+    this.formularioEnviado = false;
+  }
 
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = false;
       const json: InstructoresExtDTO = {
         no: this.formulario.value.no,
         nombre: this.formulario.value.nombre,

@@ -7,7 +7,7 @@
         </div> -->
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number" formControlName="id">
@@ -15,10 +15,20 @@
                     <div class="formulario__contenedor-controles">
                         <label for="">Nombre</label>
                         <input type="text" formControlName="nombre">
+                        <div
+                        *ngIf="formulario.get('nombre').invalid && (formulario.get('nombre').dirty || formulario.get('nombre').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Abreviatura</label>
                         <input type="text" formControlName="abreviatura">
+                        <div
+                        *ngIf="formulario.get('abreviatura').invalid && (formulario.get('abreviatura').dirty || formulario.get('abreviatura').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button type="submit">Guardar</button>

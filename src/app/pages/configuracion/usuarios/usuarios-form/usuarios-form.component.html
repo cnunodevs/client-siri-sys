@@ -7,7 +7,7 @@
         </div> -->
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number" formControlName="id">
@@ -15,14 +15,29 @@
                     <div class="formulario__contenedor-controles">
                         <label for="">Usuario</label>
                         <input type="email" formControlName="username">
+                        <div
+                            *ngIf="formulario.get('username').invalid && (formulario.get('username').dirty || formulario.get('username').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Contraseña</label>
                         <input type="password" formControlName="password">
+                        <div
+                            *ngIf="formulario.get('password').invalid && (formulario.get('password').dirty || formulario.get('password').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Autorizacion</label>
                         <input type="text" formControlName="authority">
+                        <div
+                            *ngIf="formulario.get('authority').invalid && (formulario.get('authority').dirty || formulario.get('authority').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button type="submit">Guardar</button>

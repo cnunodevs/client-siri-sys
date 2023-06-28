@@ -12,6 +12,7 @@ export class UsuariosFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: UsusarioDTO;
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -39,8 +40,14 @@ export class UsuariosFormComponent implements OnInit, OnDestroy {
     }
   }
 
+  estadoFormulario() {
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = false;
       const json: UsusarioDTO = {
         id: 0,
         username: this.formulario.value.username,

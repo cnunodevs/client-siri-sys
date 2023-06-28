@@ -17,6 +17,7 @@ export class InstructoresSenaFormColFormComponent implements OnInit, OnDestroy {
   dataEdit: InstructoresFormadosColDTO;
   convenios: ConvenioDTO[] = [];
   institucion: InstitucionDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,23 +58,28 @@ export class InstructoresSenaFormColFormComponent implements OnInit, OnDestroy {
   async cargarData() {
     await this._apiService.convenios$.subscribe(
       {
-          next: (value: ConvenioDTO[]) => {
-            this.convenios = value;
-          }
+        next: (value: ConvenioDTO[]) => {
+          this.convenios = value;
+        }
       }
     )
     await this._apiService.instituciones$.subscribe(
       {
-          next: (value: InstitucionDTO[]) => {
-            this.institucion = value;
-          }
+        next: (value: InstitucionDTO[]) => {
+          this.institucion = value;
+        }
       }
     )
   }
 
+  estadoFormulario() {
+    this.formularioEnviado = false;
+  }
 
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = true;
       // Aquí puedes hacer lo que necesites con los datos del formulario
       const json: InstructoresFormadosColDTO = {
         objetoFormacion: this.formulario.value.objetoFormacion,

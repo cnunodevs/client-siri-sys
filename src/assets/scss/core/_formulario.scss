@@ -38,6 +38,9 @@
         &:focus {
             border: 2px solid #47A34B;
         }
+        &:invalid {
+            border: 2px solid red;
+        }
     }
 }
 

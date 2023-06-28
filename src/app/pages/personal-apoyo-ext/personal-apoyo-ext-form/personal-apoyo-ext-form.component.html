@@ -7,7 +7,7 @@
         </div> -->
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number">
@@ -15,38 +15,78 @@
                     <div class="formulario__contenedor-controles">
                         <label>Objeto:</label>
                         <input type="text" formControlName="objeto">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Nombre:</label>
                         <input type="text" formControlName="nombre">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Cargo:</label>
                         <input type="text" formControlName="cargo">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Dependencia del SENA:</label>
                         <input type="text" formControlName="dependenciaSena">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Fecha de Inicio:</label>
                         <input type="date" formControlName="fechaInicio">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Institucion:</label>
                         <select formControlName="institucion">
                             <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
+                            <div
+                            *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                         </select>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Fecha Final:</label>
                         <input type="date" formControlName="fechaFinal">
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Asesor</label>
                         <select formControlName="asesor">
                             <option [value]="item.id" *ngFor="let item of asesor">{{ item.nombre }}</option>
                         </select>
+                        <div
+                        *ngIf="formulario.get('objetoFormacion').invalid && (formulario.get('objetoFormacion').dirty || formulario.get('objetoFormacion').touched || formularioEnviado)">
+                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                class="text-danger">*</span></p>
+                    </div>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>

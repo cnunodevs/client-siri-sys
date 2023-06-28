@@ -21,13 +21,14 @@ export class ExpertosIntFormComponent implements OnInit, OnDestroy {
   convenios: ConvenioDTO[] = [];
   pais: PaisDTO[] = [];
   institucion: InstitucionDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private _apiService: ApiService,
     private _peticionesService: PeticionesService
 
-    ) { 
+  ) {
     this.formulario = this.formBuilder.group({
       id: [''],
       nombre: ['', Validators.required],
@@ -66,35 +67,42 @@ export class ExpertosIntFormComponent implements OnInit, OnDestroy {
   async cargarData() {
     await this._apiService.convenios$.subscribe(
       {
-          next: (value: ConvenioDTO[]) => {
-            this.convenios = value;
-          }
+        next: (value: ConvenioDTO[]) => {
+          this.convenios = value;
+        }
       }
     )
     await this._apiService.pais$.subscribe(
       {
-          next: (value: PaisDTO[]) => {
-            this.pais = value;
-          }
+        next: (value: PaisDTO[]) => {
+          this.pais = value;
+        }
       }
     )
     await this._apiService.instituciones$.subscribe(
       {
-          next: (value: InstitucionDTO[]) => {
-            this.institucion = value;
-          }
+        next: (value: InstitucionDTO[]) => {
+          this.institucion = value;
+        }
       }
     )
     await this._apiService.asesor$.subscribe(
       {
-          next: (value: AsesorDTO[]) => {
-            this.asesor = value;
-          }
+        next: (value: AsesorDTO[]) => {
+          this.asesor = value;
+        }
       }
     )
   }
+
+  estadoFormulario(){
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = false;
       if (this.formulario.valid) {
         const json: ExpertosInternacionalesDTO = {
           nombre: this.formulario.value.nombre,

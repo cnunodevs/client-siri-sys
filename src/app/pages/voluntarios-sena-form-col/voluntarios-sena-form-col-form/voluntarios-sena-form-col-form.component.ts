@@ -15,12 +15,13 @@ export class VoluntariosSenaFormColFormComponent implements OnInit, OnDestroy {
   isEdit: boolean = false;
   dataEdit: VoluntarioAprendicesFormadosColDTO;
   convenios: ConvenioDTO[] = [];
+  formularioEnviado: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private _apiService: ApiService,
     private _peticionesService: PeticionesService
-    ) { 
+  ) {
     this.formulario = this.formBuilder.group({
       id: [''],
       nombre: ['', Validators.required],
@@ -60,15 +61,21 @@ export class VoluntariosSenaFormColFormComponent implements OnInit, OnDestroy {
   async cargarData() {
     await this._apiService.convenios$.subscribe(
       {
-          next: (value: ConvenioDTO[]) => {
-            this.convenios = value;
-          }
+        next: (value: ConvenioDTO[]) => {
+          this.convenios = value;
+        }
       }
     )
   }
 
+  estadoFormulario() {
+    this.formularioEnviado = false;
+  }
+
   async enviarFormulario() {
+    this.formularioEnviado = true;
     if (this.formulario.valid) {
+      this.formularioEnviado = false;
       // Aquí puedes hacer lo que necesites con los datos del formulario
       const json: VoluntarioAprendicesFormadosColDTO = {
         nombre: this.formulario.value.nombre,
