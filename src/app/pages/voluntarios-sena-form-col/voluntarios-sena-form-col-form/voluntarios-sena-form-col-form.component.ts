@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConvenioDTO } from 'app/shared/models/convenio-dto';
 import { VoluntarioAprendicesFormadosColDTO } from 'app/shared/models/voluntario-aprendices-formados-col-dto';
+import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
 
 @Component({
@@ -12,9 +14,11 @@ export class VoluntariosSenaFormColFormComponent implements OnInit {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: VoluntarioAprendicesFormadosColDTO;
+  convenios: ConvenioDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
+    private _apiService: ApiService,
     private _peticionesService: PeticionesService
     ) { 
     this.formulario = this.formBuilder.group({
@@ -31,7 +35,7 @@ export class VoluntariosSenaFormColFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("voluntariosForm"));
     if (this.dataEdit) {
       this.formulario.controls['nombre'].setValue(this.dataEdit.nombre)
@@ -47,6 +51,17 @@ export class VoluntariosSenaFormColFormComponent implements OnInit {
 
       this.isEdit = true;
     }
+    await this.cargarData();
+  }
+
+  async cargarData() {
+    await this._apiService.convenios$.subscribe(
+      {
+          next: (value: ConvenioDTO[]) => {
+            this.convenios = value;
+          }
+      }
+    )
   }
 
   async enviarFormulario() {
@@ -62,7 +77,7 @@ export class VoluntariosSenaFormColFormComponent implements OnInit {
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         programaFormacion: this.formulario.value.programaFormacion,
         convenio: {
-          id: 1
+          id: this.formulario.value.convenio
         }
       }
       if (this.isEdit) {

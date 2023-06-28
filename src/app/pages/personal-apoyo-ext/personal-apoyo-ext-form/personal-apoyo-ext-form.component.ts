@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AsesorDTO } from 'app/shared/models/asesor-dto';
+import { InstitucionDTO } from 'app/shared/models/institucion-dto';
 import { PersonalApoyoExteriorDTO } from 'app/shared/models/personal-apoyo-exterior-dto';
+import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
 
 @Component({
@@ -12,11 +15,14 @@ export class PersonalApoyoExtFormComponent implements OnInit {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: PersonalApoyoExteriorDTO;
+  asesor: AsesorDTO[] = [];
+  institucion: InstitucionDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
+    private _apiService: ApiService,
     private _peticionesService: PeticionesService
-    ) {
+  ) {
     this.formulario = this.formBuilder.group({
       id: [''],
       objeto: ['', Validators.required],
@@ -30,7 +36,7 @@ export class PersonalApoyoExtFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("personalApoyo"));
     if (this.dataEdit) {
       this.formulario.controls['objeto'].setValue(this.dataEdit.objeto)
@@ -45,6 +51,24 @@ export class PersonalApoyoExtFormComponent implements OnInit {
 
       this.isEdit = true;
     }
+    await this.cargarData();
+  }
+
+  async cargarData() {
+    await this._apiService.asesor$.subscribe(
+      {
+        next: (value: AsesorDTO[]) => {
+          this.asesor = value;
+        }
+      }
+    )
+    await this._apiService.instituciones$.subscribe(
+      {
+        next: (value: InstitucionDTO[]) => {
+          this.institucion = value;
+        }
+      }
+    )
   }
 
   async enviarFormulario() {
@@ -59,7 +83,7 @@ export class PersonalApoyoExtFormComponent implements OnInit {
         fechaInicio: new Date(this.formulario.value.fechaInicio),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         asesor: {
-          id: 1
+          id: this.formulario.value.asesor
         }
       }
       if (this.isEdit) {

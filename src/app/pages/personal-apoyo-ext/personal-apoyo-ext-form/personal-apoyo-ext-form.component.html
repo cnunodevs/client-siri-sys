@@ -29,16 +29,20 @@
                         <input type="date" formControlName="fechaInicio">
                     </div>
                     <div class="formulario__contenedor-controles">
+                        <label for="">Institucion:</label>
+                        <select formControlName="institucion">
+                            <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
+                        </select>
+                    </div>
+                    <div class="formulario__contenedor-controles">
                         <label>Fecha Final:</label>
                         <input type="date" formControlName="fechaFinal">
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Institucion:</label>
-                        <input type="text" formControlName="institucion">
-                    </div>
-                    <div class="formulario__contenedor-controles">
                         <label for="">Asesor</label>
-                        <input type="text" formControlName="asesor">
+                        <select formControlName="asesor">
+                            <option [value]="item.id" *ngFor="let item of asesor">{{ item.nombre }}</option>
+                        </select>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>

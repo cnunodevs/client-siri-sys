@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { AsesorDTO } from 'app/shared/models/asesor-dto';
+import { ConvenioDTO } from 'app/shared/models/convenio-dto';
 import { ExpertosInternacionalesDTO } from 'app/shared/models/expertos-internacionales-dto';
+import { InstitucionDTO } from 'app/shared/models/institucion-dto';
+import { PaisDTO } from 'app/shared/models/pais-dto';
+import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
 
 @Component({
@@ -12,9 +17,14 @@ export class ExpertosIntFormComponent implements OnInit {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: ExpertosInternacionalesDTO;
+  asesor: AsesorDTO[] = [];
+  convenios: ConvenioDTO[] = [];
+  pais: PaisDTO[] = [];
+  institucion: InstitucionDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
+    private _apiService: ApiService,
     private _peticionesService: PeticionesService
 
     ) { 
@@ -32,9 +42,7 @@ export class ExpertosIntFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-
-
+  async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("expertosInt"));
     if (this.dataEdit) {
       this.formulario.controls['nombre'].setValue(this.dataEdit.nombre)
@@ -49,8 +57,39 @@ export class ExpertosIntFormComponent implements OnInit {
 
       this.isEdit = true;
     }
+    await this.cargarData();
   }
 
+  async cargarData() {
+    await this._apiService.convenios$.subscribe(
+      {
+          next: (value: ConvenioDTO[]) => {
+            this.convenios = value;
+          }
+      }
+    )
+    await this._apiService.pais$.subscribe(
+      {
+          next: (value: PaisDTO[]) => {
+            this.pais = value;
+          }
+      }
+    )
+    await this._apiService.instituciones$.subscribe(
+      {
+          next: (value: InstitucionDTO[]) => {
+            this.institucion = value;
+          }
+      }
+    )
+    await this._apiService.asesor$.subscribe(
+      {
+          next: (value: AsesorDTO[]) => {
+            this.asesor = value;
+          }
+      }
+    )
+  }
   async enviarFormulario() {
     if (this.formulario.valid) {
       if (this.formulario.valid) {
@@ -60,17 +99,17 @@ export class ExpertosIntFormComponent implements OnInit {
           objeto: this.formulario.value.objeto,
           fechaInicio: new Date(this.formulario.value.fechaInicio),
           fechaFinal: new Date(this.formulario.value.fechaFinal),
+          asesor: {
+            id: this.formulario.value.asesor
+          },
           pais: {
-            id: 1
+            id: this.formulario.value.pais
           },
           institucion: {
-            id: 1
-          },
-          asesor: {
-            id: 1
+            id: this.formulario.value.institucion
           },
           convenio: {
-            id: 1
+            id: this.formulario.value.convenio
           }
         }
         if (this.isEdit) {

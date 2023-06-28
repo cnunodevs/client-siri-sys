@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { InstitucionDTO } from 'app/shared/models/institucion-dto';
+import { PaisDTO } from 'app/shared/models/pais-dto';
+import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
 
 @Component({
@@ -12,9 +14,11 @@ export class InstitucionesFormComponent implements OnInit {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: InstitucionDTO;
+  pais: PaisDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
+    private _apiService: ApiService,
     private _peticionesService: PeticionesService
   ) {
     this.formulario = this.formBuilder.group({
@@ -26,7 +30,7 @@ export class InstitucionesFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("institucion"));
     if (this.dataEdit) {
       this.formulario.controls['codigo'].setValue(this.dataEdit.codigo)
@@ -36,6 +40,17 @@ export class InstitucionesFormComponent implements OnInit {
 
       this.isEdit = true;
     }
+    await this.cargarData();
+  }
+
+  async cargarData() {
+    await this._apiService.convenios$.subscribe(
+      {
+          next: (value: PaisDTO[]) => {
+            this.pais = value;
+          }
+      }
+    )
   }
 
   async enviarFormulario() {

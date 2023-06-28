@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { ConvenioDTO } from 'app/shared/models/convenio-dto';
+import { InstitucionDTO } from 'app/shared/models/institucion-dto';
 import { InstructoresExtDTO } from 'app/shared/models/instructores-ext-dto';
+import { PaisDTO } from 'app/shared/models/pais-dto';
+import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
 
 @Component({
@@ -12,9 +16,13 @@ export class InstructoresExtFormComponent implements OnInit {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: InstructoresExtDTO;
+  convenios: ConvenioDTO[] = [];
+  pais: PaisDTO[] = [];
+  institucion: InstitucionDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
+    private _apiService: ApiService,
     private _peticionesService: PeticionesService
 
   ) {
@@ -33,7 +41,7 @@ export class InstructoresExtFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("intructoresExt"));
     if (this.dataEdit) {
       this.formulario.controls['no'].setValue(this.dataEdit.no)
@@ -50,7 +58,35 @@ export class InstructoresExtFormComponent implements OnInit {
 
       this.isEdit = true;
     }
+    await this.cargarData();
   }
+
+  async cargarData() {
+    await this._apiService.convenios$.subscribe(
+      {
+          next: (value: ConvenioDTO[]) => {
+            this.convenios = value;
+          }
+      }
+    )
+    await this._apiService.pais$.subscribe(
+      {
+          next: (value: PaisDTO[]) => {
+            console.log(value)
+            this.pais = value;
+          }
+      }
+    )
+    await this._apiService.instituciones$.subscribe(
+      {
+          next: (value: InstitucionDTO[]) => {
+            console.log(value)
+            this.institucion = value;
+          }
+      }
+    )
+  }
+
 
   async enviarFormulario() {
     if (this.formulario.valid) {
@@ -63,13 +99,13 @@ export class InstructoresExtFormComponent implements OnInit {
         fechaInicio: new Date(this.formulario.value.fechaInicio),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         pais: {
-          id: 1
+          id: this.formulario.value.pais
         },
         institucion: {
-          id: 1
+          id: this.formulario.value.institucion
         },
         convenio: {
-          id: 1
+          id: this.formulario.value.convenio
         }
       }
       if (this.isEdit) {

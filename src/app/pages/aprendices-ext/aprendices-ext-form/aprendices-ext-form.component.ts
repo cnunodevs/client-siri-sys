@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AprendicesExtDTO } from 'app/shared/models/aprendices-ext-dto';
+import { ConvenioDTO } from 'app/shared/models/convenio-dto';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
+import { ApiService } from '../../../shared/services/api.service';
+import { InstitucionDTO } from 'app/shared/models/institucion-dto';
+import { PaisDTO } from 'app/shared/models/pais-dto';
 
 @Component({
   selector: 'app-aprendices-ext-form',
@@ -12,9 +16,14 @@ export class AprendicesExtFormComponent implements OnInit {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: AprendicesExtDTO;
+  convenios: ConvenioDTO[] = [];
+  pais: PaisDTO[] = [];
+  institucion: InstitucionDTO[] = [];
+
 
   constructor(
     private formBuilder: FormBuilder,
+    private _apiService: ApiService,
     private _peticionesService: PeticionesService
   ) {
     this.formulario = this.formBuilder.group({
@@ -30,7 +39,7 @@ export class AprendicesExtFormComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("aprendizExt"));
     if (this.dataEdit) {
       this.formulario.controls['objetoFormacion'].setValue(this.dataEdit.objetoFormacion)
@@ -44,6 +53,33 @@ export class AprendicesExtFormComponent implements OnInit {
 
       this.isEdit = true;
     }
+    await this.cargarData();
+  }
+
+  async cargarData() {
+    await this._apiService.convenios$.subscribe(
+      {
+          next: (value: ConvenioDTO[]) => {
+            this.convenios = value;
+          }
+      }
+    )
+    await this._apiService.pais$.subscribe(
+      {
+          next: (value: PaisDTO[]) => {
+            console.log(value)
+            this.pais = value;
+          }
+      }
+    )
+    await this._apiService.instituciones$.subscribe(
+      {
+          next: (value: InstitucionDTO[]) => {
+            console.log(value)
+            this.institucion = value;
+          }
+      }
+    )
   }
 
   async enviarFormulario() {
@@ -55,13 +91,13 @@ export class AprendicesExtFormComponent implements OnInit {
         fechaInicio: new Date(this.formulario.value.fechaInicio),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         pais: {
-          id: 1
+          id: this.formulario.value.pais
         },
         institucion: {
-          id: 1
+          id: this.formulario.value.institucion
         },
         convenio: {
-          id: 1
+          id: this.formulario.value.convenio
         }
       }
       if (this.isEdit) {

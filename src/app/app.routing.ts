@@ -4,11 +4,6 @@ import { AuthGuard } from "./auth/guards/auth.guard";
 
 const routes: Routes = [
     {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: 'auth'
-    },
-    {
         path: 'admin',
         loadChildren: () =>
             import("./layouts/main/admin-layout.module").then(
@@ -22,6 +17,11 @@ const routes: Routes = [
             import("./layouts/auth/auth.module").then(
                 (m) => m.AuthModule
             ),
+    },
+    {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'auth'
     },
     {
         path: '**',

@@ -1,7 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { InstitucionDTO } from '../models/institucion-dto';
+import { ConvenioDTO } from '../models/convenio-dto';
+import { PaisDTO } from '../models/pais-dto';
+import { AsesorDTO } from '../models/asesor-dto';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +13,16 @@ import { Observable } from 'rxjs';
 export class ApiService {
   private httpHeaders = new HttpHeaders({ 'Content-type': 'application/json' })
   private RUTA_BASE = environment.url;
+
+  instituciones: BehaviorSubject<InstitucionDTO[]> = new BehaviorSubject([]);
+  instituciones$ = this.instituciones.asObservable();
+  convenios: BehaviorSubject<ConvenioDTO[]> = new BehaviorSubject([]);
+  convenios$ = this.convenios.asObservable();
+  pais: BehaviorSubject<PaisDTO[]> = new BehaviorSubject([]);
+  pais$ = this.pais.asObservable();
+  asesor: BehaviorSubject<AsesorDTO[]> = new BehaviorSubject([]);
+  asesor$ = this.asesor.asObservable();
+
   constructor(
     private httpClient: HttpClient
   ) { }

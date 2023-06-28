@@ -38,15 +38,21 @@
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Convenio</label>
-                        <input type="text" formControlName="convenio">
+                        <select formControlName="convenio">
+                            <option [value]="item.id" *ngFor="let item of convenios">{{ item.codigo }}</option>
+                        </select>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Pais</label>
-                        <input type="text" formControlName="pais">
+                        <select formControlName="pais">
+                            <option [value]="item.id" *ngFor="let item of pais">{{ item.nombre }}</option>
+                        </select>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Asesor</label>
-                        <input type="text" formControlName="asesor">
+                        <select formControlName="asesor">
+                            <option [value]="item.id" *ngFor="let item of asesor">{{ item.nombre }}</option>
+                        </select>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>
