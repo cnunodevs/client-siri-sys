@@ -28,7 +28,7 @@ export class ExpertosIntListComponent implements OnInit , MetodosCRUD {
 
   async obtenerData() {
     try {
-      this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/instructores-ext/list/all');
+      this.expertos = await this._peticionesService.getDatos<ExpertosInternacionalesDTO[]>('api/v1/expertos-internacionales/list/all');
     } catch (error) {
       console.log(error);
     }

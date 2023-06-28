@@ -22,7 +22,9 @@
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Institucion</label>
-                        <input type="text" formControlName="institucion">
+                        <select formControlName="institucion">
+                            <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
+                        </select>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Objeto:</label>

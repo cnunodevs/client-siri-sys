@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
+import { InstitucionDTO } from 'app/shared/models/institucion-dto';
 import { InstructoresFormadosColDTO } from 'app/shared/models/instructores-formados-col-dto';
 import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
@@ -15,6 +16,7 @@ export class InstructoresSenaFormColFormComponent implements OnInit, OnDestroy {
   isEdit: boolean = false;
   dataEdit: InstructoresFormadosColDTO;
   convenios: ConvenioDTO[] = [];
+  institucion: InstitucionDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -60,6 +62,13 @@ export class InstructoresSenaFormColFormComponent implements OnInit, OnDestroy {
           }
       }
     )
+    await this._apiService.instituciones$.subscribe(
+      {
+          next: (value: InstitucionDTO[]) => {
+            this.institucion = value;
+          }
+      }
+    )
   }
 
 
@@ -68,7 +77,9 @@ export class InstructoresSenaFormColFormComponent implements OnInit, OnDestroy {
       // Aquí puedes hacer lo que necesites con los datos del formulario
       const json: InstructoresFormadosColDTO = {
         objetoFormacion: this.formulario.value.objetoFormacion,
-        institucionFormadoraExt: this.formulario.value.institucionFormadoraExt,
+        institucionFormadoraExt: {
+          id: this.formulario.value.institucionFormadoraExt
+        },
         nombre: this.formulario.value.nombre,
         apellido: this.formulario.value.apellido,
         fechaInicial: new Date(this.formulario.value.fechaInicial),

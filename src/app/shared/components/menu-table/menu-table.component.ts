@@ -37,6 +37,11 @@ export class MenuTableComponent implements OnInit {
     // this.idAprendizBorrar = null;
   }
   async editarData() {
+    if (!this.dataSeleccionada) {
+      this._peticionesService.mostrarNotificacion("info", "Informacion", "Debe selecionar un elemento de la lista")
+      return;
+    }
+    console.log(this.dataSeleccionada)
     localStorage.setItem(this.dataEdit, JSON.stringify(this.dataSeleccionada));
     this.router.navigate([this.path])
   }

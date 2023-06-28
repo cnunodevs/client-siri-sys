@@ -13,8 +13,14 @@
                         <input type="number">
                     </div> -->
                     <div class="formulario__contenedor-controles">
+                        <label>Objetivo formacion:</label>
+                        <input type="text" formControlName="objetoFormacion">
+                    </div>
+                    <div class="formulario__contenedor-controles">
                         <label>Institucion Formadora:</label>
-                        <input type="text" formControlName="institucionFormadoraExt">
+                        <select formControlName="institucionFormadoraExt">
+                            <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
+                        </select>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Nombre:</label>

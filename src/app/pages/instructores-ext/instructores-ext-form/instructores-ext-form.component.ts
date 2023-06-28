@@ -113,7 +113,7 @@ export class InstructoresExtFormComponent implements OnInit, OnDestroy {
       }
       if (this.isEdit) {
         json['id'] = this.dataEdit.id;
-        await this._peticionesService.postDatos("api/v1/expertos-internacionales/create", json)
+        await this._peticionesService.postDatos("api/v1/instructores-ext/create", json)
           .then(() => {
             this.formulario.reset();
             this.isEdit = true;
@@ -121,7 +121,7 @@ export class InstructoresExtFormComponent implements OnInit, OnDestroy {
           })
         return;
       }
-      await this._peticionesService.postDatos("api/v1/expertos-internacionales/create", json)
+      await this._peticionesService.postDatos("api/v1/instructores-ext/create", json)
         .then(() => {
           this.formulario.reset();
           this.isEdit = true;

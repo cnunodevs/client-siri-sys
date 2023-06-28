@@ -1,6 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
+import { InstitucionDTO } from 'app/shared/models/institucion-dto';
 import { VoluntarioInstructoresFormadosColDTO } from 'app/shared/models/voluntario-instructores-formados-col-dto';
 import { ApiService } from 'app/shared/services/api.service';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
@@ -15,6 +16,7 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestro
   isEdit: boolean = false;
   dataEdit: VoluntarioInstructoresFormadosColDTO;
   convenios: ConvenioDTO[] = [];
+  institucion: InstitucionDTO[] = [];
 
   constructor(
     private formBuilder: FormBuilder,
@@ -61,6 +63,13 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestro
           }
       }
     )
+    await this._apiService.instituciones$.subscribe(
+      {
+          next: (value: InstitucionDTO[]) => {
+            this.institucion = value;
+          }
+      }
+    )
   }
 
   async enviarFormulario() {
@@ -70,8 +79,10 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestro
         nombre: this.formulario.value.nombre,
         apellido: this.formulario.value.apellido,
         objetoFormacion: this.formulario.value.institucionFormadoraExt,
-        institucionFormadoraExt: this.formulario.value.institucionFormadoraExt,
-        fechaInicial: new Date(this.formulario.value.fechaInicio),
+        institucionFormadoraExt: {
+          id: this.formulario.value.institucionFormadoraExt
+        },
+        fechaInicial: new Date(this.formulario.value.fechaInicial),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         convenio: {
           id: this.formulario.value.convenio
@@ -79,7 +90,7 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestro
       }
       if (this.isEdit) {
         json['id'] = this.dataEdit.id;
-        await this._peticionesService.postDatos("api/v1/voluntarios-aprendices-formados-col/create", json)
+        await this._peticionesService.postDatos("api/v1/voluntarios-instructores-formados-col/create", json)
           .then(() => {
             this.formulario.reset();
             this.isEdit = true;
@@ -87,7 +98,7 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestro
           })
         return;
       }
-      await this._peticionesService.postDatos("api/v1/voluntarios-aprendices-formados-col/create", json)
+      await this._peticionesService.postDatos("api/v1/voluntarios-instructores-formados-col/create", json)
         .then(() => {
           this.formulario.reset();
           this.isEdit = true;

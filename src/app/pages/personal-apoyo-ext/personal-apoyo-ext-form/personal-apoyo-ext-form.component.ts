@@ -25,14 +25,14 @@ export class PersonalApoyoExtFormComponent implements OnInit, OnDestroy {
   ) {
     this.formulario = this.formBuilder.group({
       id: [''],
-      objeto: ['', Validators.required],
-      nombre: ['', Validators.required],
-      cargo: ['', Validators.required],
-      dependenciaSena: ['', Validators.required],
-      fechaInicio: ['', Validators.required],
-      fechaFinal: ['', Validators.required],
-      institucion: ['', Validators.required],
-      asesor: ['', Validators.required]
+      objeto: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      cargo: ['', [Validators.required]],
+      dependenciaSena: ['', [Validators.required]],
+      fechaInicio: ['',[Validators.required]],
+      fechaFinal: ['', [Validators.required]],
+      institucion: ['', [Validators.required]],
+      asesor: ['', [Validators.required]]
     });
   }
   ngOnDestroy(): void {
@@ -82,7 +82,9 @@ export class PersonalApoyoExtFormComponent implements OnInit, OnDestroy {
         nombre: this.formulario.value.nombre,
         cargo: this.formulario.value.cargo,
         dependenciaSena: this.formulario.value.dependenciaSena,
-        institucion: this.formulario.value.institucion,
+        institucion: {
+          id: this.formulario.value.institucion
+        },
         fechaInicio: new Date(this.formulario.value.fechaInicio),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         asesor: {

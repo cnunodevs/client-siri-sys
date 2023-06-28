@@ -76,7 +76,7 @@ export class VoluntariosSenaFormColFormComponent implements OnInit, OnDestroy {
         instructor: this.formulario.value.instructor,
         objetoTransferencia: this.formulario.value.objetoTransferencia,
         documento: this.formulario.value.documento,
-        fechaInicial: new Date(this.formulario.value.fechaInicio),
+        fechaInicial: new Date(this.formulario.value.fechaInicial),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         programaFormacion: this.formulario.value.programaFormacion,
         convenio: {
