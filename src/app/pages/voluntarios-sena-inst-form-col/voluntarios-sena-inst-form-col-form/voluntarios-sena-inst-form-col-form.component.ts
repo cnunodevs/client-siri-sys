@@ -26,17 +26,17 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestro
   ) {
     this.formulario = this.formBuilder.group({
       id: [''],
-      objetoFormacion: ['', Validators.required],
-      institucionFormadoraExt: ['', Validators.required],
-      nombre: ['', Validators.required],
-      apellido: ['', Validators.required],
-      fechaInicial: ['', Validators.required],
-      fechaFinal: ['', Validators.required],
-      convenio: ['', Validators.required]
+      objetoFormacion: ['', [Validators.required]],
+      institucionFormadoraExt: ['', [Validators.required]],
+      nombre: ['', [Validators.required]],
+      apellido: ['', [Validators.required]],
+      fechaInicial: ['', [Validators.required]],
+      fechaFinal: ['', [Validators.required]],
+      convenio: ['', [Validators.required]]
     });
   }
   ngOnDestroy(): void {
-    throw new Error('Method not implemented.');
+    localStorage.removeItem("voluntariosSenForm")
   }
 
   async ngOnInit() {

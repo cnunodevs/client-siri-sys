@@ -97,7 +97,7 @@ export class VoluntariosIntFormComponent implements OnInit, OnDestroy {
       const json: VoluntarioInternacionalesColDTO = {
         nombre: this.formulario.value.objeto,
         objeto: this.formulario.value.nombre,
-        centroFormacion: this.formulario.value.cargo,
+        centroFormacion: this.formulario.value.centroFormacion,
         fechaInicio: new Date(this.formulario.value.fechaInicio),
         fechaFinal: new Date(this.formulario.value.fechaFinal),
         asesor: {

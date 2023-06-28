@@ -7,7 +7,8 @@
         </div> -->
         <div class="row">
             <div class="col-md-12">
-                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario" (ngSubmit)="enviarFormulario()">
+                <form class="formulario__contenedor" (change)="estadoFormulario()" [formGroup]="formulario"
+                    (ngSubmit)="enviarFormulario()">
                     <!-- <div class="formulario__contenedor-controles">
                         <label for="">N"</label>
                         <input type="number">
@@ -16,46 +17,56 @@
                         <label>Nombre:</label>
                         <input type="text" formControlName="nombre">
                         <div
-                        *ngIf="formulario.get('nombre').invalid && (formulario.get('nombre').dirty || formulario.get('nombre').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('nombre').invalid && (formulario.get('nombre').dirty || formulario.get('nombre').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Objeto:</label>
                         <input type="text" formControlName="objeto">
                         <div
-                        *ngIf="formulario.get('objeto').invalid && (formulario.get('objeto').dirty || formulario.get('objeto').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('objeto').invalid && (formulario.get('objeto').dirty || formulario.get('objeto').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Centro de Formación:</label>
                         <input type="text" formControlName="centroFormacion">
                         <div
-                        *ngIf="formulario.get('centroFormacion').invalid && (formulario.get('centroFormacion').dirty || formulario.get('centroFormacion').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('centroFormacion').invalid && (formulario.get('centroFormacion').dirty || formulario.get('centroFormacion').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Fecha de Inicio:</label>
                         <input type="date" formControlName="fechaInicio">
                         <div
-                        *ngIf="formulario.get('fechaInicio').invalid && (formulario.get('fechaInicio').dirty || formulario.get('fechaInicio').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
+                            *ngIf="formulario.get('fechaInicio').invalid && (formulario.get('fechaInicio').dirty || formulario.get('fechaInicio').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
+
+                    <div class="formulario__contenedor-controles">
+                        <label>Fecha de Final:</label>
+                        <input type="date" formControlName="fechaFinal">
+                        <div
+                            *ngIf="formulario.get('fechaFinal').invalid && (formulario.get('fechaFinal').dirty || formulario.get('fechaFinal').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Centro de Formación:</label>
                         <input type="text" formControlName="centroFormacion">
                         <div
-                        *ngIf="formulario.get('centroFormacion').invalid && (formulario.get('centroFormacion').dirty || formulario.get('centroFormacion').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('centroFormacion').invalid && (formulario.get('centroFormacion').dirty || formulario.get('centroFormacion').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Pais:</label>
@@ -63,10 +74,10 @@
                             <option [value]="item.id" *ngFor="let item of pais">{{ item.nombre }}</option>
                         </select>
                         <div
-                        *ngIf="formulario.get('pais').invalid && (formulario.get('pais').dirty || formulario.get('pais').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('pais').invalid && (formulario.get('pais').dirty || formulario.get('pais').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label>Asesor:</label>
@@ -74,10 +85,10 @@
                             <option [value]="item.id" *ngFor="let item of asesor">{{ item.nombre }}</option>
                         </select>
                         <div
-                        *ngIf="formulario.get('asesor').invalid && (formulario.get('asesor').dirty || formulario.get('asesor').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('asesor').invalid && (formulario.get('asesor').dirty || formulario.get('asesor').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-controles">
                         <label for="">Convenio:</label>
@@ -85,10 +96,10 @@
                             <option [value]="item.id" *ngFor="let item of convenios">{{ item.codigo }}</option>
                         </select>
                         <div
-                        *ngIf="formulario.get('convenio').invalid && (formulario.get('convenio').dirty || formulario.get('convenio').touched || formularioEnviado)">
-                        <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
-                                class="text-danger">*</span></p>
-                    </div>
+                            *ngIf="formulario.get('convenio').invalid && (formulario.get('convenio').dirty || formulario.get('convenio').touched || formularioEnviado)">
+                            <p style="font-size: 12px;">Debe seleccionar una opcion valida <span
+                                    class="text-danger">*</span></p>
+                        </div>
                     </div>
                     <div class="formulario__contenedor-boton">
                         <button>
