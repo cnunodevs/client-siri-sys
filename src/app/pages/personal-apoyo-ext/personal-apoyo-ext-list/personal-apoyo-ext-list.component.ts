@@ -10,6 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
+  loading: boolean = false;
   personal: PersonalApoyoExteriorDTO[];
   dataSeleccionada: PersonalApoyoExteriorDTO;
   path: string = '/admin/personal-apoyo-ext/form-personal-apoyo-ext';
@@ -27,11 +28,13 @@ export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.personal = await this._peticionesService.getDatos<PersonalApoyoExteriorDTO[]>('api/v1/personal-apoyo-ext/list/all');
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   ngOnInit(): void {

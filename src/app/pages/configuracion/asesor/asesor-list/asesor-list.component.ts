@@ -9,6 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class AsesorListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   asesor: AsesorDTO[];
   dataSeleccionada: AsesorDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
@@ -21,12 +22,14 @@ export class AsesorListComponent implements OnInit {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.asesor = await this._peticionesService.getDatos<AsesorDTO[]>('api/v1/asesores/list/all');
       console.log(this.asesor)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: AsesorDTO) {

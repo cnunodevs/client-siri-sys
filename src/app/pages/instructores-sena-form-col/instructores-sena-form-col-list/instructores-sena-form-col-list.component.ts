@@ -10,6 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class InstructoresSenaFormColListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
+  loading: boolean = false;
   instructores: InstructoresFormadosColDTO[];
   dataSeleccionada: InstructoresFormadosColDTO;
   path: string = '/admin/instructores-sena-col/form-instructores-int';
@@ -28,11 +29,13 @@ export class InstructoresSenaFormColListComponent implements OnInit , MetodosCRU
 
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.instructores = await this._peticionesService.getDatos<InstructoresFormadosColDTO[]>('api/v1/instructores-formados-col/list/all');
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
   ngOnInit(): void {
     this.obtenerData();

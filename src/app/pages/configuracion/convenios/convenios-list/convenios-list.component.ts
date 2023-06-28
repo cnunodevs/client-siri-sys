@@ -9,6 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class ConveniosListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   convenios: ConvenioDTO[];
   dataSeleccionada: ConvenioDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
@@ -21,12 +22,14 @@ export class ConveniosListComponent implements OnInit {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.convenios = await this._peticionesService.getDatos<ConvenioDTO[]>('api/v1/convenios/list/all');
       console.log(this.convenios)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: ConvenioDTO) {

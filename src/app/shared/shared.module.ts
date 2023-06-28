@@ -17,6 +17,7 @@ import { RouterModule } from '@angular/router';
 import { MenuTableComponent } from './components/menu-table/menu-table.component';
 import { PaginatorComponent } from './components/paginator/paginator.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 const COMPONENTES = [
   NavbarComponent,
@@ -24,7 +25,8 @@ const COMPONENTES = [
   FooterComponent,
   MenuTableComponent, 
   PaginatorComponent,
-  BreadcrumbsComponent
+  BreadcrumbsComponent,
+  LoaderComponent
 ]
 const MODULOS = [
   CommonModule,

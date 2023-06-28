@@ -9,6 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class ReportesListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   reportes: ReportesDTO[];
   dataSeleccionada: ReportesDTO;
   path: string = '/admin/reportes/reportes-form';
@@ -21,12 +22,14 @@ export class ReportesListComponent implements OnInit {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.reportes = await this._peticionesService.getDatos<ReportesDTO[]>('api/v1/reportes/list/all');
       console.log(this.reportes)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: ReportesDTO) {

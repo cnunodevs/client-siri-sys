@@ -9,6 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class InstitucionesListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   institucion: InstitucionDTO[];
   dataSeleccionada: InstitucionDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
@@ -21,12 +22,14 @@ export class InstitucionesListComponent implements OnInit {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.institucion = await this._peticionesService.getDatos<InstitucionDTO[]>('api/v1/instituciones/list/all');
       console.log(this.institucion)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: InstitucionDTO) {

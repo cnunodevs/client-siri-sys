@@ -10,6 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class VoluntariosIntListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar :string | null = null;
+  loading: boolean = false;
   voluntarios: VoluntarioInternacionalesColDTO[];
   dataSeleccionada: VoluntarioInternacionalesColDTO;
   path: string = '/admin/voluntarios-int/form-voluntarios-int';
@@ -27,11 +28,13 @@ export class VoluntariosIntListComponent implements OnInit , MetodosCRUD {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.voluntarios = await this._peticionesService.getDatos<VoluntarioInternacionalesColDTO[]>('api/v1/voluntarios-internacionales/list/all');
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   ngOnInit(): void {

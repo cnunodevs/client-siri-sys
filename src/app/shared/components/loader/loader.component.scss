@@ -1,0 +1,42 @@
+// Loading
+.initial__loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+  
+   .spinner {
+    width: 102px;
+    height: 102px;
+    display: grid;
+    border: 4px solid #0000;
+    border-radius: 50%;
+    border-right-color: green;
+    animation: spinner 1s infinite linear;
+   }
+  
+   .spinner::before,
+   .spinner::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 2px;
+    border: inherit;
+    border-radius: 50%;
+    animation: spinner 2s infinite;
+   }
+  
+   .spinner::after {
+    margin: 8px;
+    animation-duration: 3s;
+   }
+  
+   @keyframes spinner {
+    100% {
+     transform: rotate(1turn);
+    }
+   }

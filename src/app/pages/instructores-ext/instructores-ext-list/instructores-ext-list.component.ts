@@ -10,6 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null = null;
+  loading: boolean = false;
   instructores: InstructoresExtDTO[];
   dataSeleccionada: InstructoresExtDTO;
   path: string = '/admin/expertos-int/form-expertos-int';
@@ -28,11 +29,13 @@ export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
 
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.instructores = await this._peticionesService.getDatos<InstructoresExtDTO[]>('api/v1/instructores-ext/list/all');
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   ngOnInit(): void {

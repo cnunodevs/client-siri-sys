@@ -5,6 +5,9 @@
                 <app-breadcrumbs></app-breadcrumbs>
             </div>
         </div> -->
+        <div class="loader" *ngIf="loading">
+            <app-loader></app-loader>
+          </div>
         <div class="row">
             <div class="col">
                 <app-menu-table [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'usuarios'" [dataSeleccionada]="dataSeleccionada" [rutaEliminar]="rutaEliminar" [path]="path" [dataEdit]="'institucion'" [dataSeleccionada]="dataSeleccionada" [idAprendizBorrar]="idAprendizBorrar" [idAprendizBorrar]="idAprendizBorrar" [rutaAgregar]="'/admin/reportes/reportes-form'"></app-menu-table>

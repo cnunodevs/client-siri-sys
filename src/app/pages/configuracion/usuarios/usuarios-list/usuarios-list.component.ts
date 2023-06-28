@@ -9,6 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class UsuariosListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   Usuarios: UsusarioDTO[];
   dataSeleccionada: UsusarioDTO;
   path: string = '/admin/usuarios/usuarios-form';
@@ -21,12 +22,14 @@ export class UsuariosListComponent implements OnInit {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.Usuarios = await this._peticionesService.getDatos<UsusarioDTO[]>('api/v1/usuarios/list/all');
       console.log(this.Usuarios)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: UsusarioDTO) {

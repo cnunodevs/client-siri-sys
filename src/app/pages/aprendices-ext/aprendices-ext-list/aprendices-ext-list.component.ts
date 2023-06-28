@@ -10,6 +10,7 @@ import { PeticionesService } from '../../../shared/services/peticiones.service';
 })
 export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   aprendices: AprendicesExtDTO[];
   dataSeleccionada: AprendicesExtDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
@@ -22,12 +23,14 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.aprendices = await this._peticionesService.getDatos<AprendicesExtDTO[]>('api/v1/aprendices-ext/list/all');
       console.log(this.aprendices)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: AprendicesExtDTO) {

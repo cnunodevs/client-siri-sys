@@ -9,6 +9,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class PaisesListComponent implements OnInit {
   idAprendizBorrar: string | null | number = null;
+  loading: boolean = false;
   pais: PaisDTO[];
   dataSeleccionada: PaisDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
@@ -21,12 +22,14 @@ export class PaisesListComponent implements OnInit {
   }
 
   async obtenerData() {
+    this.loading = true;
     try {
       this.pais = await this._peticionesService.getDatos<PaisDTO[]>('api/v1/paises/list/all');
       console.log(this.pais)
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   actualizarSeleccion(elemento: PaisDTO) {
