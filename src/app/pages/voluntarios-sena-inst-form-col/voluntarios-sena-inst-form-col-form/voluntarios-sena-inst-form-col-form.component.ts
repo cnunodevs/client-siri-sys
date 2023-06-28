@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
 import { VoluntarioInstructoresFormadosColDTO } from 'app/shared/models/voluntario-instructores-formados-col-dto';
@@ -10,7 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './voluntarios-sena-inst-form-col-form.component.html',
   styleUrls: ['./voluntarios-sena-inst-form-col-form.component.scss']
 })
-export class VoluntariosSenaInstFormColFormComponent implements OnInit {
+export class VoluntariosSenaInstFormColFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: VoluntarioInstructoresFormadosColDTO;
@@ -32,9 +32,12 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit {
       convenio: ['', Validators.required]
     });
   }
+  ngOnDestroy(): void {
+    throw new Error('Method not implemented.');
+  }
 
   async ngOnInit() {
-    this.dataEdit = JSON.parse(localStorage.getItem("voluntariosForm"));
+    this.dataEdit = JSON.parse(localStorage.getItem("voluntariosSenForm"));
     if (this.dataEdit) {
       this.formulario.controls['nombre'].setValue(this.dataEdit.nombre)
       this.formulario.controls['apellido'].setValue(this.dataEdit.apellido)
@@ -80,7 +83,7 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit {
           .then(() => {
             this.formulario.reset();
             this.isEdit = true;
-            localStorage.removeItem("voluntariosForm")
+            localStorage.removeItem("voluntariosSenForm")
           })
         return;
       }
@@ -88,7 +91,7 @@ export class VoluntariosSenaInstFormColFormComponent implements OnInit {
         .then(() => {
           this.formulario.reset();
           this.isEdit = true;
-          localStorage.removeItem("voluntariosForm")
+          localStorage.removeItem("voluntariosSenForm")
         })
     }
   }

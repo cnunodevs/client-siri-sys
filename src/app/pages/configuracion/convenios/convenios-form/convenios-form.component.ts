@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
@@ -8,7 +8,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './convenios-form.component.html',
   styleUrls: ['./convenios-form.component.scss']
 })
-export class ConveniosFormComponent implements OnInit {
+export class ConveniosFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: ConvenioDTO;
@@ -24,6 +24,9 @@ export class ConveniosFormComponent implements OnInit {
       fechaFinal: ['', Validators.required],
       detalleConvenio: ['', Validators.required],
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("convenios");
   }
 
   ngOnInit() {

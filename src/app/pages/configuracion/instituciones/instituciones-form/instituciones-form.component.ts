@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { InstitucionDTO } from 'app/shared/models/institucion-dto';
 import { PaisDTO } from 'app/shared/models/pais-dto';
@@ -10,7 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './instituciones-form.component.html',
   styleUrls: ['./instituciones-form.component.scss']
 })
-export class InstitucionesFormComponent implements OnInit {
+export class InstitucionesFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: InstitucionDTO;
@@ -28,6 +28,9 @@ export class InstitucionesFormComponent implements OnInit {
       tipo: ['', Validators.required],
       pais: ['', Validators.required],
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("institucion");
   }
 
   async ngOnInit() {

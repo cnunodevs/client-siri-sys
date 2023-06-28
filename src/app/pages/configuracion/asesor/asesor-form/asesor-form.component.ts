@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AsesorDTO } from 'app/shared/models/asesor-dto';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
@@ -8,7 +8,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './asesor-form.component.html',
   styleUrls: ['./asesor-form.component.scss']
 })
-export class AsesorFormComponent implements OnInit {
+export class AsesorFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: AsesorDTO;
@@ -24,6 +24,9 @@ export class AsesorFormComponent implements OnInit {
       profesion: ['', Validators.required],
       detalleAsesoramiento: ['', Validators.required],
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("asesor");
   }
 
   ngOnInit() {

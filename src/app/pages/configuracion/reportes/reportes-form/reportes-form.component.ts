@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReportesDTO } from 'app/shared/models/reportes-dto';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
@@ -8,7 +8,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './reportes-form.component.html',
   styleUrls: ['./reportes-form.component.scss']
 })
-export class ReportesFormComponent implements OnInit {
+export class ReportesFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: ReportesDTO;
@@ -23,6 +23,9 @@ export class ReportesFormComponent implements OnInit {
       descripcion: ['', Validators.required],
       url: ['', Validators.required]
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("reportes");
   }
 
   ngOnInit() {

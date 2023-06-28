@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { UsusarioDTO } from 'app/shared/models/usuarios-dto';
 import { PeticionesService } from 'app/shared/services/peticiones.service';
@@ -8,7 +8,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './usuarios-form.component.html',
   styleUrls: ['./usuarios-form.component.scss']
 })
-export class UsuariosFormComponent implements OnInit {
+export class UsuariosFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: UsusarioDTO;
@@ -23,6 +23,9 @@ export class UsuariosFormComponent implements OnInit {
       password: ['', Validators.required],
       authority: ['', Validators.required]
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("usuarios");
   }
 
   ngOnInit() {

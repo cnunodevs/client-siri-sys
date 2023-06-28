@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AsesorDTO } from 'app/shared/models/asesor-dto';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
@@ -12,7 +12,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './voluntarios-int-form.component.html',
   styleUrls: ['./voluntarios-int-form.component.scss']
 })
-export class VoluntariosIntFormComponent implements OnInit {
+export class VoluntariosIntFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: VoluntarioInternacionalesColDTO;
@@ -37,9 +37,12 @@ export class VoluntariosIntFormComponent implements OnInit {
       convenio: ['', Validators.required]
     })
   }
+  ngOnDestroy(): void {
+    localStorage.removeItem("voluntariosInt");
+  }
 
   async ngOnInit() {
-    this.dataEdit = JSON.parse(localStorage.getItem("personalApoyo"));
+    this.dataEdit = JSON.parse(localStorage.getItem("voluntariosInt"));
     if (this.dataEdit) {
       this.formulario.controls['nombre'].setValue(this.dataEdit.nombre)
       this.formulario.controls['objeto'].setValue(this.dataEdit.objeto)

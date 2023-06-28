@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AsesorDTO } from 'app/shared/models/asesor-dto';
 import { InstitucionDTO } from 'app/shared/models/institucion-dto';
@@ -11,7 +11,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './personal-apoyo-ext-form.component.html',
   styleUrls: ['./personal-apoyo-ext-form.component.scss']
 })
-export class PersonalApoyoExtFormComponent implements OnInit {
+export class PersonalApoyoExtFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: PersonalApoyoExteriorDTO;
@@ -34,6 +34,9 @@ export class PersonalApoyoExtFormComponent implements OnInit {
       institucion: ['', Validators.required],
       asesor: ['', Validators.required]
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("personalApoyo");
   }
 
   async ngOnInit() {

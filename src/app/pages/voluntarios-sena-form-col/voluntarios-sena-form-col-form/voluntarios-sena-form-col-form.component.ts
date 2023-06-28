@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
 import { VoluntarioAprendicesFormadosColDTO } from 'app/shared/models/voluntario-aprendices-formados-col-dto';
@@ -10,7 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './voluntarios-sena-form-col-form.component.html',
   styleUrls: ['./voluntarios-sena-form-col-form.component.scss']
 })
-export class VoluntariosSenaFormColFormComponent implements OnInit {
+export class VoluntariosSenaFormColFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: VoluntarioAprendicesFormadosColDTO;
@@ -33,6 +33,9 @@ export class VoluntariosSenaFormColFormComponent implements OnInit {
       fechaFinal: ['', Validators.required],
       convenio: ['', Validators.required]
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("voluntariosForm");
   }
 
   async ngOnInit() {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AsesorDTO } from 'app/shared/models/asesor-dto';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
@@ -13,7 +13,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './expertos-int-form.component.html',
   styleUrls: ['./expertos-int-form.component.scss']
 })
-export class ExpertosIntFormComponent implements OnInit {
+export class ExpertosIntFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: ExpertosInternacionalesDTO;
@@ -40,6 +40,9 @@ export class ExpertosIntFormComponent implements OnInit {
       asesor: ['', Validators.required],
       convenio: ['', Validators.required]
     });
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("expertosInt")
   }
 
   async ngOnInit() {

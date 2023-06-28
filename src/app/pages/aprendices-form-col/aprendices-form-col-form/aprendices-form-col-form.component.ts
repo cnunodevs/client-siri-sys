@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AprendicesFormadosColDTO } from 'app/shared/models/aprendices-formados-col-dto';
 import { ConvenioDTO } from 'app/shared/models/convenio-dto';
@@ -10,7 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
   templateUrl: './aprendices-form-col-form.component.html',
   styleUrls: ['./aprendices-form-col-form.component.scss']
 })
-export class AprendicesFormColFormComponent implements OnInit {
+export class AprendicesFormColFormComponent implements OnInit, OnDestroy {
   formulario: FormGroup;
   isEdit: boolean = false;
   dataEdit: AprendicesFormadosColDTO;
@@ -20,7 +20,7 @@ export class AprendicesFormColFormComponent implements OnInit {
     private formBuilder: FormBuilder,
     private _apiService: ApiService,
     private _peticionesService: PeticionesService
-    ) {
+  ) {
     this.formulario = this.formBuilder.group({
       id: [''],
       nombre: ['', Validators.required],
@@ -33,7 +33,10 @@ export class AprendicesFormColFormComponent implements OnInit {
       fechaFinal: ['', Validators.required],
       convenio: ['', Validators.required]
     });
-   }
+  }
+  ngOnDestroy(): void {
+    localStorage.removeItem("aprendizForm")
+  }
 
   async ngOnInit() {
     this.dataEdit = JSON.parse(localStorage.getItem("aprendizForm"));
@@ -57,9 +60,9 @@ export class AprendicesFormColFormComponent implements OnInit {
   async cargarData() {
     await this._apiService.convenios$.subscribe(
       {
-          next: (value: ConvenioDTO[]) => {
-            this.convenios = value;
-          }
+        next: (value: ConvenioDTO[]) => {
+          this.convenios = value;
+        }
       }
     )
   }
@@ -85,6 +88,7 @@ export class AprendicesFormColFormComponent implements OnInit {
           .then(() => {
             this.formulario.reset();
             this.isEdit = true;
+            localStorage.removeItem("aprendizForm")
           })
         return;
       }
@@ -92,6 +96,7 @@ export class AprendicesFormColFormComponent implements OnInit {
         .then(() => {
           this.formulario.reset();
           this.isEdit = true;
+          localStorage.removeItem("aprendizForm")
         })
     }
   }
