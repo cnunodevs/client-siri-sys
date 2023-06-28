@@ -60,12 +60,6 @@
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
                                         <td>
-                                            {{ item.pais }}
-                                        </td>
-                                        <td>
-                                            {{ item.institucion.nombre }}
-                                        </td>
-                                        <td>
                                             {{ item.objeto }}
                                         </td>
                                         <td>
@@ -83,8 +77,11 @@
                                         <td>
                                             {{ item.fechaFinal }}
                                         </td>
-                                        <td class="text-success">
-                                            {{ item.asesor }}
+                                        <td>
+                                            {{ item.institucion.nombre && item.institucion ? item.pais.nombre : 'N/A' }}
+                                        </td>
+                                        <td>
+                                            {{ item.asesor.nombre && item.asesor ? item.pais.nombre : 'N/A' }}
                                         </td>
                                     </tr>
                                 </tbody>

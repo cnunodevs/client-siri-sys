@@ -63,7 +63,7 @@
                                             {{ item.pais }}
                                         </td>
                                         <td>
-                                            {{ item.institucion }}
+                                            {{ item.institucion.nombre && item.institucion ? item.pais.nombre : 'N/A' }}
                                         </td>
                                         <td>
                                             {{ item.nombre }}
@@ -81,7 +81,7 @@
                                             {{ item.fechaFinal }}
                                         </td>
                                         <td class="text-success">
-                                            {{ item.convenio }}
+                                            {{ item.convenio.nombre && item.convenio ? item.pais.nombre : 'N/A' }}
                                         </td>
                                     </tr>
                                 </tbody>

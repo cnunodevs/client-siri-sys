@@ -52,7 +52,7 @@
                                             <input type="checkbox" (change)="actualizarSeleccion(item)">
                                         </td>
                                         <td>
-                                            {{ item.institucionFormadoraExt.nombre }}
+                                            {{ item.institucionFormadoraExt.nombre && item.institucionFormadoraExt ? item.institucionFormadoraExt.nombre : 'N/A' }}
                                         </td>
                                         <td>
                                             {{ item.objetoFormacion }}
@@ -61,13 +61,16 @@
                                             {{ item.nombre }}
                                         </td>
                                         <td>
+                                            {{ item.apellido }}
+                                        </td>
+                                        <td>
                                             {{ item.fechaInicio }}
                                         </td>
                                         <td>
                                             {{ item.fechaFinal }}
                                         </td>
                                         <td class="text-success">
-                                            {{ item.convenio }}
+                                            {{ item.convenio && item.convenio.codigo ? item.convenio.codigo : 'N/A' }}
                                         </td>
                                     </tr>
                                 </tbody>

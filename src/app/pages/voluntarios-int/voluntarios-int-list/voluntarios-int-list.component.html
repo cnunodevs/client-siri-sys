@@ -57,7 +57,7 @@
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)"></td>
                                         <td>
-                                            {{ item.pais }}
+                                            {{ item.pais.nombre && item.pais ? item.pais.nombre : 'N/A'}}
                                         </td>
                                         <td>
                                             {{ item.nombre }}
@@ -72,10 +72,10 @@
                                             {{ item.fechaFinal }}
                                         </td>
                                         <td>
-                                            {{ item.asesor }}
+                                            {{ item.asesor.nombre && item.asesor ? item.asesor.nombre : 'N/A' }}
                                         </td>
                                         <td class="text-success">
-                                            {{ item.convenio }}
+                                            {{ item.convenio && item.convenio.codigo ? item.convenio.codigo : 'N/A' }}
                                         </td>
                                     </tr>
                                 </tbody>

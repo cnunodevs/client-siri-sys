@@ -72,7 +72,7 @@
                                             {{ item.fechaInicial }}
                                         </td>
                                         <td class="text-success">
-                                            {{ item.convenio.codigo }}
+                                            {{ item.convenio && item.convenio.codigo ? item.convenio.codigo : 'N/A' }}
                                         </td>
                                     </tr>
                                 </tbody>

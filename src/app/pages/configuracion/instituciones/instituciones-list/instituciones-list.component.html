@@ -57,7 +57,7 @@
                                             {{ item.tipo }}
                                         </td>
                                         <td>
-                                            {{ item.pais.nombre }}
+                                            {{ item.pais && item.pais.nombre ? item.convenio.codigo : 'N/A' }}
                                         </td>
                                     </tr>
                                 </tbody>
