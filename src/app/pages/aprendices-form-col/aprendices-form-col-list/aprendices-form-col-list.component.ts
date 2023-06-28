@@ -10,6 +10,7 @@ import { PeticionesService } from 'app/shared/services/peticiones.service';
 })
 export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
   idAprendizBorrar: string | null | number = null; 
+  loading: boolean = false;
   aprendices: AprendicesFormadosColDTO[];
   path: string = '/admin/aprendiz-col/form-aprendiz-col';
   dataSeleccionada: AprendicesFormadosColDTO;
@@ -27,11 +28,13 @@ export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
     this.dataSeleccionada = elemento;
   }
   async obtenerData() {
+    this.loading = true;
     try {
       this.aprendices = await this._peticionesService.getDatos<AprendicesFormadosColDTO[]>('api/v1/aprendices-formados-col/list/all');
     } catch (error) {
       console.log(error);
     }
+    this.loading = false;
   }
 
   ngOnInit(): void {
