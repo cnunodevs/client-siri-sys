@@ -15,6 +15,9 @@ export class VoluntariosSenaFormColListComponent implements OnInit , MetodosCRUD
   dataSeleccionada: VoluntarioAprendicesFormadosColDTO;
   path: string = '/admin/voluntarios-form-col/form-voluntarios-sena-form';
   rutaEliminar: string = 'api/v1/voluntarios-aprendices-formados-col/delete/by-id/'; 
+  numberRow: number = 5;
+  page: number = 1;
+  
   constructor(
     private _peticionesService: PeticionesService
   ) { 

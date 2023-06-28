@@ -14,6 +14,8 @@ export class ReportesListComponent implements OnInit {
   dataSeleccionada: ReportesDTO;
   path: string = '/admin/reportes/reportes-form';
   rutaEliminar: string = 'api/v1/reportes/delete/by-id/'; 
+  numberRow: number = 5;
+  page: number = 1;
   
   constructor(
     private _peticionesService: PeticionesService

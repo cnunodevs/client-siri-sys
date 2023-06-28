@@ -15,7 +15,9 @@ export class InstructoresExtListComponent implements OnInit , MetodosCRUD {
   dataSeleccionada: InstructoresExtDTO;
   path: string = '/admin/expertos-int/form-expertos-int';
   rutaEliminar: string = 'api/v1/expertos-internacionales/delete/by-id/'; 
-
+  numberRow: number = 5;
+  page: number = 1;
+  
   constructor(
     private _peticionesService: PeticionesService
   ) { 

@@ -1,23 +1,45 @@
-.contenedor{
-    display: flex;
-    width: 100%;
+.ant-pagination {
+    margin: 16px 20px !important;
 }
-.icono-personalizado {
-    font-size: 25px; /* Ajusta el tamaño según tus necesidades */
-  }
-.contenedor__paginador {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: end;
-    gap: 8px;
-    button {
-        width: 40px !important;
-        height: 40px !important;
-        border: none;
-        outline: none;
-        padding: 18px 16px;
-        cursor: pointer;
-        transition: all .5s ease-in-out;
-    }
+
+.ant-switch-checked {
+    background-color: #00AE8D !important;
+}
+
+::ng-deep .cdk-drag-preview {
+    display: table;
+}
+
+::ng-deep .cdk-drag-placeholder {
+    opacity: 0;
+}
+
+/** Botones de paginacion */
+::ng-deep .ngx-pagination .current {
+    background: #F0FAF8 !important;
+    color: #90A0B7 !important;
+    padding: 7px 13px !important;
+    border: 1px solid #CBD7E5 !important;
+    border-radius: 4px !important;
+}
+
+::ng-deep .ngx-pagination a,
+.ngx-pagination button {
+    padding: 7px 12px !important;
+    color: #90A0B7 !important;
+    border-radius: 4px !important;
+    margin: 0;
+    background: #FFFFFF;
+    border: 1px solid #CBD7E5 !important;
+    margin: -1px;
+}
+
+::ng-deep .ngx-pagination .disabled {
+    padding: 7px 12px !important;
+    color: #90A0B7 !important;
+    border-radius: 4px !important;
+    margin: 0;
+    background: #FFFFFF;
+    border: 1px solid #CBD7E5 !important;
+    margin: -1px;
 }

@@ -14,6 +14,8 @@ export class ConveniosListComponent implements OnInit {
   dataSeleccionada: ConvenioDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
   rutaEliminar: string = 'api/v1/convenios/delete/by-id/'; 
+  numberRow: number = 5;
+  page: number = 1;
   
   constructor(
     private _peticionesService: PeticionesService

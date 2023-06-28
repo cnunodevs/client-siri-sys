@@ -14,6 +14,8 @@ export class AprendicesFormColListComponent implements OnInit , MetodosCRUD {
   path: string = '/admin/aprendiz-col/form-aprendiz-col';
   dataSeleccionada: AprendicesFormadosColDTO;
   rutaEliminar: string = 'api/v1/aprendices-formados-col/delete/by-id/';
+  numberRow: number = 5;
+  page: number = 1;
   
   constructor(
     private _peticionesService: PeticionesService

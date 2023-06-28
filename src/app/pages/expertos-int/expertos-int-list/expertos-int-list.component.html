@@ -58,7 +58,7 @@
                                     </th>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let item of expertos">
+                                    <tr *ngFor="let item of expertos | paginate : { id: 'table', itemsPerPage: numberRow, currentPage: page }">
                                         <td>
                                             <input type="checkbox" (change)="actualizarSeleccion(item)">
                                         </td>
@@ -99,7 +99,7 @@
         </div>
         <div class="row">
             <div class="col">
-                <app-paginator></app-paginator>
+                <app-paginator [numberRow]="numberRow" [page]="page"></app-paginator>
             </div>
         </div>
     </div>

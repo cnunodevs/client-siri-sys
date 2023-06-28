@@ -15,7 +15,9 @@ export class InstructoresSenaFormColListComponent implements OnInit , MetodosCRU
   dataSeleccionada: InstructoresFormadosColDTO;
   path: string = '/admin/instructores-sena-col/form-instructores-int';
   rutaEliminar: string = 'api/v1/instructores-formados-col/delete/by-id/'; 
-
+  numberRow: number = 5;
+  page: number = 1;
+  
   constructor(
     private _peticionesService: PeticionesService
   ) { 

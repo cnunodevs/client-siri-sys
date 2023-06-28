@@ -15,7 +15,9 @@ export class ExpertosIntListComponent implements OnInit, MetodosCRUD {
   dataSeleccionada: ExpertosInternacionalesDTO;
   path: string = '/admin/expertos-int/form-expertos-int';
   rutaEliminar: string = 'api/v1/form-expertos-int';
-
+  numberRow: number = 5;
+  page: number = 1;
+  
   constructor(
     private _peticionesService: PeticionesService
   ) {

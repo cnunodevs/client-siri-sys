@@ -15,7 +15,9 @@ export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
   dataSeleccionada: AprendicesExtDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
   rutaEliminar: string = 'api/v1/aprendices-ext/delete/by-id/'; 
-  
+  numberRow: number = 5;
+  page: number = 1;
+
   constructor(
     private _peticionesService: PeticionesService
   ) { 
