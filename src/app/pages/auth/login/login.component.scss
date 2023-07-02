@@ -1,86 +1,168 @@
-.contenedor{
+.contenedor {
     display: flex;
-    width: 100%;
+    overflow-y: hidden;
     height: 100vh;
 }
-.contenedor__formulario{
+
+.contenedor-formulario {
     width: 50%;
     height: 100%;
+    background-color: #FFFFFF;
+    position: relative;
+}
+
+.formulario-imagen {
     display: flex;
     align-items: center;
-    justify-content: center;
-    background-color: #F8FDF8;
-    form{
-        width: 70%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        h2,
-        span{
-            color: #385559;
-            font-weight: 700;
-        }
-    }
+    gap: 8px;
+    width: 384px;
+    margin-bottom: 18px;
 }
-.contenedor__formulario-entrada{
-    width: 100%;
+
+.formulario-imagen img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+}
+
+.formulario-imagen span {
+    font-weight: 900;
+    font-size: 19px;
+}
+
+.formulario-footer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.formulario-footer img {
+    width: 48px;
+    width: 48px;
+    object-fit: cover;
+}
+
+.contenedor-informacion {
+    width: 384px;
+    margin-bottom: 18px;
+}
+
+form {
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 3px;
-    margin-bottom: 20px;
-    label{
-        color: #73888B;
-        font-weight: 700;
-    }
-    input {
-        width: 100%;
-        height: 40px;
-        padding: 12px;
-        font-size: 13px;
-        border-radius: 8px;
-        border: 1.5px solid #DEE6E3;
-        outline: none;
-        transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-        box-shadow: 0px 0px 20px -18px;
-
-        &:hover {
-            border: 2px solid #DEE6E3;
-            box-shadow: 0px 0px 20px -17px;
-        }
-
-        &:active {
-            transform: scale(0.99);
-        }
-
-        &:focus {
-            border: 2px solid #466443;
-        }
-    }
-}
-button{
-    width: 100%;
-    height: 40px;
-    background-color: #466443;
-    border: 0;
-    outline: none;
-    border-radius: 8px;
-    font-size: 15px;
-    color: white;
-    margin-bottom: 20px;
-}
-// -------------------------------
-.contenedor__imagen{
-    width: 50%;
-    height: 100%;
-    background-color: white;
-    display: flex;
     align-items: center;
     justify-content: center;
-    picture{
-        img{
-            width: 400px;
-            height: 450px;
-            object-fit: cover;
-        }
-    }
+    gap: 14px;
+}
+
+.contenedor-entradas {
+    position: relative;
+}
+
+.contenedor-entradas svg {
+    position: absolute;
+    top: 36px;
+    left: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #4caf4f;
+}
+
+input {
+    width: 384px;
+    height: 38px;
+    gap: 10px;
+    background: #fff;
+    border: 1px solid #4caf4f;
+    color: black;
+    border-radius: 8px;
+    outline: none;
+    transition: all .5s ease-in-out;
+    font-size: 15px;
+    padding: 0px 42px;
+}
+
+input:hover {
+    border: 1px solid #4caf4f;
+}
+
+input:active {
+    border: 1px solid #4caf4f;
+}
+
+input:disabled {
+    background: #4caf4f;
+    border: 1px solid #4caf4f;
+}
+
+input::placeholder {
+    font-size: 14px;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #4caf4f;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 0;
+    margin-top: 18px;
+    width: 384px;
+    height: 44px;
+    outline: none;
+    cursor: pointer;
+}
+
+a {
+    width: 384px;
+    display: inline-block;
+    text-align: end;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: #4caf4faf;
+    text-decoration: none;
+}
+
+.contenedor-carrusel {
+    width: 50%;
+    height: 100%;
+    background: url('../../../../assets/img/login/fondo.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.contenedor-imagen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor-imagen img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+.alert {
+    background-color: transparent;
+    color: red;
+    font-size: 14px;
 }

@@ -10,6 +10,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { NzTableModule } from 'ng-zorro-antd/table';
 import { NzFormModule } from 'ng-zorro-antd/form';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel'
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -20,6 +21,7 @@ import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.compo
 import { LoaderComponent } from './components/loader/loader.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { SubidaFileComponent } from './components/subida-file/subida-file.component';
+import { NzInputModule } from 'ng-zorro-antd/input';
 
 const COMPONENTES = [
   NavbarComponent,
@@ -45,6 +47,8 @@ const MODULOS = [
   NzTableModule,
   NzFormModule,
   NgxPaginationModule,
+  NzCarouselModule,
+  NzInputModule,
   NzMenuModule
   
 ]
