@@ -20,6 +20,10 @@ export class AprendicesExtFormComponent implements OnInit, OnDestroy {
   pais: PaisDTO[] = [];
   institucion: InstitucionDTO[] = [];
   formularioEnviado: boolean = false;
+  contenedor: number = null;
+  conv = "Nota debe tener un convenio registrado para el envio exitoso";
+  inst = "Nota debe tener una institucion registrado para el envio exitoso";
+  isHovered: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -57,6 +61,13 @@ export class AprendicesExtFormComponent implements OnInit, OnDestroy {
       this.isEdit = true;
     }
     await this.cargarData();
+  }
+
+  onHover(cont): void {
+    this.isHovered = !this.isHovered;
+    if (this.isHovered || cont == 1) {
+      this.contenedor = 1
+    }
   }
 
   async cargarData() {

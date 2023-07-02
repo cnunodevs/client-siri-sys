@@ -23,7 +23,10 @@
                         </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label>Institucion Formadora:</label>
+                        <label class="d-flex" style="gap: 12px;">
+                            Institucion Formadora:
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener una institucion registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="institucionFormadoraExt">
                             <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
                         </select>
@@ -52,7 +55,10 @@
                         </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label>Convenio:</label>
+                        <label class="d-flex" style="gap: 12px;">
+                            Convenio:
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener un convenio registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="convenio">
                             <option [value]="item.id" *ngFor="let item of convenios">{{ item.codigo }}</option>
                         </select>

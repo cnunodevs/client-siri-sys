@@ -31,7 +31,10 @@
                         </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Institucion</label>
+                        <label for="" class="d-flex" style="gap: 12px">
+                            Institucion
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener una institucion registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="institucion">
                             <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
                         </select>
@@ -69,7 +72,10 @@
                         </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Convenio</label>
+                        <label for="" class="d-flex" style="gap: 12px;">
+                            Convenio
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener un convenio registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="convenio">
                             <option [value]="item.id" *ngFor="let item of convenios">{{ item.codigo }}</option>
                         </select>
@@ -80,7 +86,10 @@
                         </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Pais</label>
+                        <label for="" class="d-flex" style="gap: 12px;">
+                            Pais
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener un pais registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="pais">
                             <option [value]="item.id" *ngFor="let item of pais">{{ item.nombre }}</option>
                         </select>
@@ -91,7 +100,10 @@
                         </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Asesor</label>
+                        <label for="" class="d-flex" style="gap: 12px">
+                            Asesor
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener un asesor registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="asesor">
                             <option [value]="item.id" *ngFor="let item of asesor">{{ item.nombre }}</option>
                         </select>

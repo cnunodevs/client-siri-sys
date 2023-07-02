@@ -40,7 +40,10 @@
                     </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Pais</label>
+                        <label for="" class="d-flex" style="gap: 12px;">
+                            Pais
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener un pais registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="pais">
                             <option [value]="item.id" *ngFor="let item of pais">{{ item.nombre }}</option>
                         </select>

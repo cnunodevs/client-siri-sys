@@ -58,7 +58,10 @@
                     </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Institucion:</label>
+                        <label for="" class="d-flex" style="gap: 12px;">
+                            Institucion:
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener una institucion registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="institucion">
                             <option [value]="item.id" *ngFor="let item of institucion">{{ item.nombre }}</option>
                             <div
@@ -78,7 +81,10 @@
                     </div>
                     </div>
                     <div class="formulario__contenedor-controles">
-                        <label for="">Asesor</label>
+                        <label for="" class="d-flex" style="gap: 12px">
+                            Asesor
+                            <app-help-icons nz-button [nzTooltipColor]="'#b9daba'" nzTooltipTitle="Nota debe tener un asesor registrado para el envio exitoso" nzTooltipPlacement="top" nz-tooltip></app-help-icons>
+                        </label>
                         <select formControlName="asesor">
                             <option [value]="item.id" *ngFor="let item of asesor">{{ item.nombre }}</option>
                         </select>
