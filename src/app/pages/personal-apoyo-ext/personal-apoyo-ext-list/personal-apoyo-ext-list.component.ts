@@ -15,6 +15,7 @@ export class PersonalApoyoExtListComponent implements OnInit , MetodosCRUD {
   dataSeleccionada: PersonalApoyoExteriorDTO;
   path: string = '/admin/personal-apoyo-ext/form-personal-apoyo-ext';
   rutaEliminar: string = 'api/v1/personal-apoyo-ext/delete/by-id/'; 
+  ruta: string = 'api/v1/personal-apoyo-ext/upload-file'; 
   numberRow: number = 5;
   page: number = 1;
   

@@ -10,11 +10,13 @@ import { PeticionesService } from '../../../shared/services/peticiones.service';
 })
 export class AprendicesExtListComponent implements OnInit, MetodosCRUD {
   idAprendizBorrar: string | null | number = null;
+  isVisible = true;
   loading: boolean = false;
   aprendices: AprendicesExtDTO[];
   dataSeleccionada: AprendicesExtDTO;
   path: string = '/admin/aprendiz-ext/form-aprendiz-ext';
   rutaEliminar: string = 'api/v1/aprendices-ext/delete/by-id/'; 
+  ruta: string = 'api/v1/aprendices-ext/upload-file'; 
   numberRow: number = 5;
   page: number = 1;
 

@@ -31,6 +31,27 @@ export class PeticionesService {
       )
     })
   }
+  async postDatosFile<T>(ruta: string, file: File): Promise<T> {
+    return new Promise<T>((resolve, reject) => {
+      this._apiService.postDatosFile(ruta, file)
+        .subscribe(
+          {
+            next: (value: any) => {
+              this.mostrarNotificacion('success', 'Éxito', 'Archivo subido correctamente');
+              resolve(value)
+            },
+            error: (err: any) => {
+            this.mostrarNotificacion('error', 'Error', 'Ocurrió un error en el envio del archivo');
+            reject(err)
+            },
+            complete: () => {
+              console.log("La suscripción al observable ha finalizado");
+            },
+          }
+        )
+    })
+  }
+
   postDatos<T>(ruta: string, body: T): Promise<T> {
     return new Promise<T>((resolve, reject) => {
       this._apiService.postDatos(ruta, body).subscribe(

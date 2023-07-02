@@ -15,6 +15,8 @@ export class VoluntariosSenaInstFormColListComponent implements OnInit, MetodosC
   dataSeleccionada: VoluntarioInstructoresFormadosColDTO;
   path: string = '/admin/voluntarios-form-inst-col/form-voluntarios-sena-inst-form';
   rutaEliminar: string = 'api/v1/voluntarios-instructores-formados-col/delete/by-id/';
+  ruta: string = 'api/v1/voluntarios-instructores-formados-col/upload-file'; 
+
   numberRow: number = 5;
   page: number = 1;
 

@@ -15,6 +15,7 @@ export class VoluntariosIntListComponent implements OnInit , MetodosCRUD {
   dataSeleccionada: VoluntarioInternacionalesColDTO;
   path: string = '/admin/voluntarios-int/form-voluntarios-int';
   rutaEliminar: string = 'api/v1/voluntarios-internacionales/delete/by-id/'; 
+  ruta: string = 'api/v1/voluntarios-internacionales/upload-file'; 
   numberRow: number = 5;
   page: number = 1;
   

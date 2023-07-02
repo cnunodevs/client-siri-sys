@@ -34,6 +34,12 @@ export class ApiService {
   postDatos<T>(ruta: string, body: T): Observable<T> {
     return this.httpClient.post<T>(`${this.RUTA_BASE}/${ruta}`, body, { headers: this.httpHeaders });
   }
+
+  postDatosFile<T>(ruta: string, file: File): Observable<T> {
+    const formData = new FormData();
+    formData.append('file', file);
+    return this.httpClient.post<T>(`${this.RUTA_BASE}/${ruta}`, formData);
+  }
   deleteDatos<T>(ruta: string, id: string | number): Observable<T> {
     return this.httpClient.delete<T>(`${this.RUTA_BASE}/${ruta}${id}`, { headers: this.httpHeaders });
   }

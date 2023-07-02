@@ -15,6 +15,9 @@ export class MenuTableComponent implements OnInit {
   @Input() dataEdit: string = '';
   @Input() path: string = '';
   @Input() rutaEliminar: string = '';
+  @Input() ruta: string = '';
+
+  isvisible: boolean = false;
   constructor(
     private _peticionesService: PeticionesService,
     private router: Router
@@ -47,14 +50,6 @@ export class MenuTableComponent implements OnInit {
   }
 
   cargarFile() {
-    Swal.fire({
-      title: 'Cargar por archivo',
-      text: "No disponible por el momento, en etapa de desarrollo",
-      icon: 'info',
-      showCancelButton: false,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'De, acuerdo'
-    })
+    this.isvisible = true;
   }
 }

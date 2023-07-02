@@ -19,6 +19,7 @@ import { PaginatorComponent } from './components/paginator/paginator.component';
 import { BreadcrumbsComponent } from './components/breadcrumbs/breadcrumbs.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { SubidaFileComponent } from './components/subida-file/subida-file.component';
 
 const COMPONENTES = [
   NavbarComponent,
@@ -27,7 +28,8 @@ const COMPONENTES = [
   MenuTableComponent, 
   PaginatorComponent,
   BreadcrumbsComponent,
-  LoaderComponent
+  LoaderComponent,
+  SubidaFileComponent
 ]
 const MODULOS = [
   CommonModule,
